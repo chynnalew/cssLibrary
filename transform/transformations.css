@@ -1,0 +1,8 @@
+/* Flip div horizontally (doesn't flip text) */
+.flip-horizontal {
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
