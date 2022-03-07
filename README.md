@@ -1,3 +1,8 @@
+# Useful CSS and JS front end code! 
+### By: Chynna Lew
+
+<hr/>
+
 ## TABLE OF CONTENTS:
 ### BUTTONS:
 1. Return to top of page
