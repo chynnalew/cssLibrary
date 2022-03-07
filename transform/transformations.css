@@ -1,7 +1,29 @@
-/* Flip div horizontally (doesn't flip text) */
+/* 1. FLIP DIV HORIZONTALLY*/
 .flip-horizontal {
   -moz-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
   -o-transform: scaleX(-1);
   transform: scaleX(-1);
+}
+
+/* 2. CHANGE BACKGROUND When Halfway down div */
+.change-bg-image-container {
+  height: 100vw;
+}
+.change-bg-image-container > div{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  transition: opacity 3s ease;
+  
+}
+/* add images, each in their own class (add corresponding classes in individual empty divs to your html) */
+.changeBGimage1{
+  background-image: url('https://images.unsplash.com/photo-1646647465222-a8f8c5222b84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+  opacity:1
+}
+.changeBGimage2{
+  background-image: url('https://images.unsplash.com/photo-1646614871839-881108ea8407?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1121&q=80');
+  opacity: 0
 }

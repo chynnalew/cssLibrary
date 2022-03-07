@@ -3,7 +3,7 @@
 
 /* to use without adjusting for possible load stuttering:
     update args to match the ids or classes chosen in your html (for classes, each class must be unique) */
-console.log('testing!');
+
 const rotateClockwise = document.querySelector('#rotateClockwise');
 const rotateCounterClockwise = document.querySelector('#rotateCounterClockwise');
 /* add code to watch for scroll */
@@ -37,4 +37,19 @@ counterClockwise = document.querySelector("#counterClockwise");
 window.addEventListener("optimizedScroll", function() {
   clockwise.style.transform = "rotate("+window.pageYOffset+"deg)";
   counterClockwise.style.transform = "rotate(-"+window.pageYOffset+"deg)";
+});
+
+// 2. CHANGE BACKGROUND when halfway down div
+  //define div background to change
+const changeBackgroundWithScroll = document.querySelector('.change-bg-image-container');
+  //create a const for each background image (also add classes to empty divs in html, add bg images to each class in css)
+const changeBGimage1 = document.querySelector('.changeBGimage1');
+const changeBGimage2 = document.querySelector('.changeBGimage2');
+
+const scrollAmount = window.innerHeight/2;
+window.addEventListener('scroll', (event) => {
+  const { top } = changeBackgroundWithScroll.getBoundingClientRect();
+  const bgScrollImageInView = top - window.innerHeight < scrollAmount;
+  changeBGimage1.style.opacity = +!bgScrollImageInView;
+  changeBGimage2.style.opacity = +bgScrollImageInView;
 });
