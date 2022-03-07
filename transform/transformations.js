@@ -1,11 +1,11 @@
 //1. SPIN DIV WITH SCROLL 
-/* NOTE: script must be placed at the BOTTOM of the page */
+/* NOTE: script must be placed at the BOTTOM of the page  */
 
 /* to use without adjusting for possible load stuttering:
-    update args to match the ids chosen in your html */
+    update args to match the ids or classes chosen in your html (for classes, each class must be unique) */
 console.log('testing!');
-const rotateClockwise = document.getElementById('id1');
-const rotateCounterClockwise = document.getElementById('id2');
+const rotateClockwise = document.querySelector('#rotateClockwise');
+const rotateCounterClockwise = document.querySelector('#rotateCounterClockwise');
 /* add code to watch for scroll */
 window.addEventListener("scroll", function() {
   rotateClockwise.style.transform = "rotate("+window.pageYOffset+"deg)";
@@ -13,7 +13,7 @@ window.addEventListener("scroll", function() {
 });
 
 /* to use adjusted for load stuttering 
-    update args to match the ids chosen in your html */
+    update args to match the ids or classes chosen in your html */
 ;(function() {
   var throttle = function(type, name, obj) {
       var obj = obj || window;
@@ -31,8 +31,8 @@ window.addEventListener("scroll", function() {
   throttle ("scroll", "optimizedScroll");
 })();
 
-var clockwise = document.getElementById("id3"),
-counterClockwise = document.getElementById("id4");
+var clockwise = document.querySelector("#clockwise"),
+counterClockwise = document.querySelector("#counterClockwise");
 
 window.addEventListener("optimizedScroll", function() {
   clockwise.style.transform = "rotate("+window.pageYOffset+"deg)";
