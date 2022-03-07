@@ -46,10 +46,9 @@ const changeBackgroundWithScroll = document.querySelector('.change-bg-image-cont
 const changeBGimage1 = document.querySelector('.changeBGimage1');
 const changeBGimage2 = document.querySelector('.changeBGimage2');
 
-const scrollAmount = window.innerHeight/2;
 window.addEventListener('scroll', (event) => {
   const { top } = changeBackgroundWithScroll.getBoundingClientRect();
-  const bgScrollImageInView = top - window.innerHeight < scrollAmount;
+  const bgScrollImageInView = (top - window.innerHeight) < (0-window.innerHeight/2);
   changeBGimage1.style.opacity = +!bgScrollImageInView;
   changeBGimage2.style.opacity = +bgScrollImageInView;
 });

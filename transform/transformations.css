@@ -8,7 +8,7 @@
 
 /* 2. CHANGE BACKGROUND When Halfway down div */
 .change-bg-image-container {
-  height: 100vw;
+  height: 100vh;
 }
 .change-bg-image-container > div{
   position: absolute;

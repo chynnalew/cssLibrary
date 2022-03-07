@@ -21,4 +21,4 @@
   - to add to wordpress: create a hook element in generate press (wp_footer) - place code between script tags
 2. Change Background halfway down div
   - transformations.css 9-29
-  - transformations.js 42-55
+  - transformations.js 42-54
