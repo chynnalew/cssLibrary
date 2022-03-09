@@ -22,3 +22,6 @@
 2. Change Background (fade to new background) halfway down div
   - transformations.css 9-29
   - transformations.js 42-54
+3. MOVE DIV IN FROM SIDE WITH SCROLL
+  - transformations.css 31-45
+  - transformations.js 56-68

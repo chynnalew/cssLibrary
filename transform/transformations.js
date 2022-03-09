@@ -1,4 +1,4 @@
-//1. SPIN DIV WITH SCROLL 
+// SPIN DIV WITH SCROLL 
 /* NOTE: script must be placed at the BOTTOM of the page  */
 
 /* to use without adjusting for possible load stuttering:
@@ -39,7 +39,7 @@ window.addEventListener("optimizedScroll", function() {
   counterClockwise.style.transform = "rotate(-"+window.pageYOffset+"deg)";
 });
 
-// 2. CHANGE BACKGROUND when halfway down div
+// CHANGE BACKGROUND when halfway down div
   //define div background to change
 const changeBackgroundWithScroll = document.querySelector('.change-bg-image-container');
   //create a const for each background image (also add classes to empty divs in html, add bg images to each class in css)
@@ -52,3 +52,17 @@ window.addEventListener('scroll', (event) => {
   changeBGimage1.style.opacity = +!bgScrollImageInView;
   changeBGimage2.style.opacity = +bgScrollImageInView;
 });
+
+// MOVE DIV IN FROM SIDE WITH SCROLL
+const moveInRight = document.querySelector('.move-in-with-scroll-inner-1');
+const moveInLeft = document.querySelector('.move-in-with-scroll-inner-2');
+
+window.addEventListener("scroll", function () {
+  let moveInWithScrollRightDivVisible = moveInRight.getBoundingClientRect().top / moveInRight.getBoundingClientRect().height * 100 ;
+  let moveInWithScrollLeftDivVisible = moveInLeft.getBoundingClientRect().top / moveInRight.getBoundingClientRect().height * 100 ;
+  // add number (int as if percentage) to the end of the above variables to change when the div moves in
+  moveInRight.style.transform = "translate(" + moveInWithScrollRightDivVisible + "vw)";
+  moveInLeft.style.transform = "translate(-" + moveInWithScrollLeftDivVisible + "vw)";
+  console.log('top: '+ moveInWithScrollDivVisible)
+}
+);

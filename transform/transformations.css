@@ -1,4 +1,4 @@
-/* 1. FLIP DIV HORIZONTALLY*/
+/* FLIP DIV HORIZONTALLY*/
 .flip-horizontal {
   -moz-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
@@ -6,7 +6,7 @@
   transform: scaleX(-1);
 }
 
-/* 2. CHANGE BACKGROUND When Halfway down div */
+/* CHANGE BACKGROUND When Halfway down div */
 .change-bg-image-container {
   height: 100vh;
 }
@@ -26,4 +26,20 @@
 .changeBGimage2{
   background-image: url('https://images.unsplash.com/photo-1646614871839-881108ea8407?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1121&q=80');
   opacity: 0
+}
+
+/* MOVE DIV IN FROM SIDE WITH SCROLL */
+.move-in-with-scroll-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: sandybrown;
+}
+.move-in-with-scroll-inner-1 {
+  height: 100%;
+  transform: translate(100vw);
+}
+.move-in-with-scroll-inner-2 {
+  height: 100%;
+  transform: translate(-100vw);
 }
