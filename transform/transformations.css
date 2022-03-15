@@ -9,14 +9,14 @@
 /* CHANGE BACKGROUND When Halfway down div */
 .change-bg-image-container {
   height: 100vh;
+  width: 100%;
 }
 .change-bg-image-container > div{
   position: absolute;
   width: 100%;
   height: 100%;
-  background-size: contain;
+  background-size: cover;
   transition: opacity 3s ease;
-  
 }
 /* add images, each in their own class (add corresponding classes in individual empty divs to your html) */
 .changeBGimage1{
@@ -30,16 +30,26 @@
 
 /* MOVE DIV IN FROM SIDE WITH SCROLL */
 .move-in-with-scroll-container {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   background-color: sandybrown;
 }
-.move-in-with-scroll-inner-1 {
+.move-in-with-scroll-inner {
   height: 100%;
   transform: translate(100vw);
 }
-.move-in-with-scroll-inner-2 {
+
+/* MOVE DIV IN FROM SIDE WITH SCROLL - start after div is fully in view */
+.move-in-with-scroll-sticky-container {
+  width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: black;
+}
+.move-in-with-scroll-sticky-inner {
   height: 100%;
-  transform: translate(-100vw);
+  transform: translate(100vw);
 }

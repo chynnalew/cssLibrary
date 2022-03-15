@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/041a3db818.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>half circle boarder</title>
+  </head>
+  <body>
+    <style>
+      .icon-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        margin: auto;
+        color: #e58f65;
+        padding: 10px;
+        position: relative;
+        bottom: -4px !important;
+        width: 106px;
+        height: 48px;
+        border: 4px #e58f65 solid;
+        border-top-left-radius: 100% 200%;
+        border-top-right-radius: 100% 200%;
+        border-bottom: 0;
+      }
+
+      .flip-slant {
+        -moz-transform: scale(-1, -1);
+        -o-transform: scale(-1, -1);
+        -webkit-transform: scale(-1, -1);
+        transform: scale(-1, -1);
+      }
+      .orange-border {
+        border: 4px #e58f65 solid !important;
+      }
+    </style>
+    <h1>Directions:</h1>
+    <ul>
+      <li>add font awesome to the project</li>
+      <li>
+        create 3 divs containing: top quote icon, quote, bottom quote icon
+      </li>
+      <li>
+        in this instance, the bottom div is the same as the top, flipped
+        horizontally and vertically
+      </li>
+      <li>
+        Add the classes and css for icon-container on the divs wrapping your
+        font awesome icons
+      </li>
+      <li>add the class and css for a standard border around your quote div</li>
+      <li>you will need to adjust the "bottom" property in the .icon-container to match the width of your standard border</li>
+    </ul>
+    <div>
+      <div class="icon-container">
+        <i class="fa-solid fa-quote-left fa-4x color-orange"></i>
+      </div>
+      <div class="orange-border">
+        <p style="padding: 20px; font-size: 30px">
+          "Everyone who works here has a wonderful attitude and is truly
+          dedicated to providing the best care possible for all their clients
+          and workers. I really appreciate the staff for being so welcoming and
+          kind!"
+        </p>
+      </div>
+      <div class="flip-slant">
+        <div class="icon-container">
+          <i class="fa-solid fa-quote-left fa-4x color-orange"></i>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

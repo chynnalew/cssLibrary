@@ -7,7 +7,7 @@
   <title>Testing Ground!</title>
   <link rel="stylesheet" href="./transform/transformations.css">
 </head>
-<body>
+<body style="box-sizing: border-box;">
   <section style="margin:20px">
     <h1>Transform Static 1: flip div horizontally</h1>
     <h1 style="background-color:lightblue; margin:20px; height: 300px; display:flex; align-items:center; justify-content:center">Test Test Test</h1>
@@ -32,15 +32,20 @@
 
     <h1>3. Transform - dynamic: Move in Div with Scroll</h1>
     <div class="move-in-with-scroll-container">
-      <div class="move-in-with-scroll-inner-1">
+      <div class="move-in-with-scroll-inner">
         <img src="https://images.unsplash.com/photo-1646673940197-dbf528eea559?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
       </div>
     </div>
-    <div class="move-in-with-scroll-container">
-      <div class="move-in-with-scroll-inner-2">
-        <img src="https://images.unsplash.com/photo-1646673940197-dbf528eea559?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
+
+    <h1>4. Transform - dynamic: Move in Div with Scroll - start after div is fully in view</h1>
+    <div class="move-in-with-scroll-sticky-container">
+      <div class="move-in-with-scroll-sticky-inner">
+        <img src="https://images.unsplash.com/photo-1646836604050-b3e0e52e55c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="">
       </div>
     </div>
+
+    <div style="height: 100vh"></div>
+    
   </section>
   
   <script src="./transform/transformations.js"></script>

@@ -54,15 +54,33 @@ window.addEventListener('scroll', (event) => {
 });
 
 // MOVE DIV IN FROM SIDE WITH SCROLL
-const moveInRight = document.querySelector('.move-in-with-scroll-inner-1');
-const moveInLeft = document.querySelector('.move-in-with-scroll-inner-2');
+const moveInRight = document.querySelector('.move-in-with-scroll-inner');
 
 window.addEventListener("scroll", function () {
-  let moveInWithScrollRightDivVisible = moveInRight.getBoundingClientRect().top / moveInRight.getBoundingClientRect().height * 100 ;
-  let moveInWithScrollLeftDivVisible = moveInLeft.getBoundingClientRect().top / moveInRight.getBoundingClientRect().height * 100 ;
+  let moveInWithScrollDivVisible = moveInRight.getBoundingClientRect().top / moveInRight.getBoundingClientRect().height * 100 ;
   // add number (int as if percentage) to the end of the above variables to change when the div moves in
-  moveInRight.style.transform = "translate(" + moveInWithScrollRightDivVisible + "vw)";
-  moveInLeft.style.transform = "translate(-" + moveInWithScrollLeftDivVisible + "vw)";
-  console.log('top: '+ moveInWithScrollDivVisible)
-}
-);
+  if (moveInWithScrollDivVisible > 0) {
+    moveInRight.style.transform = "translate(" + moveInWithScrollDivVisible + "vw)";
+  } else {
+    moveInRight.style.transform = "translate(0vw)";
+  }
+});
+
+// MOVE DIV IN FROM SIDE WITH SCROLL - start after div is fully in view
+const moveInRightStickyContainer = document.querySelector('.move-in-with-scroll-sticky-container');
+const moveInRightSticky = document.querySelector('.move-in-with-scroll-sticky-inner');
+
+window.addEventListener("scroll", function () {
+  let moveInWithScrollStickyContainerPos = moveInRightStickyContainer.getBoundingClientRect().top;
+  let moveInWithScrollSticky = moveInRightSticky.getBoundingClientRect().top / moveInRightSticky.getBoundingClientRect().height * 100;
+  console.log(moveInWithScrollStickyContainerPos)
+  if (moveInWithScrollStickyContainerPos <= 0) {
+    moveInRightStickyContainer.style.position = "sticky";
+    moveInRightStickyContainer.style.top = '0';
+  }
+  // if (moveInWithScrollSticky > 0) {
+  //   moveInRightSticky.style.transform = "translate(" + moveInWithScrollSticky + "vw)";
+  // } else {
+  //   moveInRightSticky.style.transform = "translate(0vw)";
+  // }
+});
