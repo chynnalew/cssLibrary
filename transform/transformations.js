@@ -66,6 +66,21 @@ window.addEventListener("scroll", function () {
   }
 });
 
+// BRING IN DIV FROM LEFT AND ZOOM IN WITH SCROLL
+const zoomItIn = document.querySelector('.zoomItIn');
+const zoomItInContainer = document.querySelector('.zoomItInContainer');
+window.addEventListener('scroll', () => {
+  const zoomScrolled = zoomItInContainer.getBoundingClientRect().top / zoomItInContainer.getBoundingClientRect().height * 100;
+  console.log(zoomScrolled);
+  const zoomVal = zoomScrolled -100 ;
+  console.log(`zoomVal: ${zoomVal}`);
+    zoomItIn.style.transform = `translateX(${-1 * zoomVal}%)`;
+    zoomItIn.style.borderRadius = `${-.2 * zoomVal}%`;
+    zoomItIn.style.height = `${-2.5 * zoomVal}px`;
+    zoomItIn.style.width = `${-2.5 * zoomVal}px`;
+});
+
+//WORK IN PROGRESS!!!!!
 // MOVE DIV IN FROM SIDE WITH SCROLL - start after div is fully in view
 const moveInRightStickyContainer = document.querySelector('.move-in-with-scroll-sticky-container');
 const moveInRightSticky = document.querySelector('.move-in-with-scroll-sticky-inner');
@@ -73,14 +88,26 @@ const moveInRightSticky = document.querySelector('.move-in-with-scroll-sticky-in
 window.addEventListener("scroll", function () {
   let moveInWithScrollStickyContainerPos = moveInRightStickyContainer.getBoundingClientRect().top;
   let moveInWithScrollSticky = moveInRightSticky.getBoundingClientRect().top / moveInRightSticky.getBoundingClientRect().height * 100;
-  console.log(moveInWithScrollStickyContainerPos)
+  let leftSidePosition = moveInRightSticky.getBoundingClientRect().left / moveInRightSticky.getBoundingClientRect().width * 100;
+  // console.log("container:" + moveInWithScrollStickyContainerPos)
+  // console.log("image top:" + moveInWithScrollSticky)
+  // console.log("image left:" + leftSidePosition)
   if (moveInWithScrollStickyContainerPos <= 0) {
     moveInRightStickyContainer.style.position = "sticky";
     moveInRightStickyContainer.style.top = '0';
   }
-  // if (moveInWithScrollSticky > 0) {
-  //   moveInRightSticky.style.transform = "translate(" + moveInWithScrollSticky + "vw)";
-  // } else {
-  //   moveInRightSticky.style.transform = "translate(0vw)";
-  // }
+  if (moveInWithScrollSticky > 0) {
+    moveInRightSticky.style.transform = "translate(" + moveInWithScrollSticky + "vw)";
+  } else {
+    moveInRightSticky.style.transform = "translate(0vw)";
+  }
+  
+  if (window.scrollY > 3500) {
+    moveInRightStickyContainer.style.position = "relative";
+  }
 });
+
+// window.addEventListener("scroll", (event) => {
+//   let scrollY = this.scrollY;
+//   console.log("scroll:" + scrollY);
+// });

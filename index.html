@@ -9,6 +9,7 @@
 </head>
 <body style="box-sizing: border-box;">
   <section style="margin:20px">
+
     <h1>Transform Static 1: flip div horizontally</h1>
     <h1 style="background-color:lightblue; margin:20px; height: 300px; display:flex; align-items:center; justify-content:center">Test Test Test</h1>
     <h1 class='flip-horizontal'style="background-color:lightblue; margin:20px; height: 300px; display:flex; align-items:center; justify-content:center">Test Test Test</h1>
@@ -37,7 +38,13 @@
       </div>
     </div>
 
-    <h1>4. Transform - dynamic: Move in Div with Scroll - start after div is fully in view</h1>
+    <h1>4. BRING IN DIV FROM LEFT AND ZOOM IN WITH SCROLL</h1>
+    <section class="zoomItInContainer">
+      <div class="zoomItIn"></div>
+    </section>
+
+
+    <h1>5. Transform - dynamic: Move in Div with Scroll - start after div is fully in view</h1>
     <div class="move-in-with-scroll-sticky-container">
       <div class="move-in-with-scroll-sticky-inner">
         <img src="https://images.unsplash.com/photo-1646836604050-b3e0e52e55c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="">
@@ -45,7 +52,7 @@
     </div>
 
     <div style="height: 100vh"></div>
-    
+    <div style="background: pink; height:500px"></div>
   </section>
   
   <script src="./transform/transformations.js"></script>

@@ -40,6 +40,17 @@
   transform: translate(100vw);
 }
 
+/* BRING IN DIV FROM LEFT AND ZOOM IN WITH SCROLL */
+.zoomItInContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.zoomItIn {
+  background-color: deepskyblue;
+}
+
 /* MOVE DIV IN FROM SIDE WITH SCROLL - start after div is fully in view */
 .move-in-with-scroll-sticky-container {
   width: 100%;

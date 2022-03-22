@@ -29,10 +29,45 @@
 3. MOVE DIV IN FROM SIDE WITH SCROLL
   - transformations.css 31-41
   - transformations.js 56-67
-4. MOVE DIV IN FROM SIDE WITH SCROLL - start after div is fully in view
+4. MOVE DIV IN AND ZOOM IN WITH SCROLL
+  - transformations.js 69-79
+  -
+5. WIP MOVE DIV IN FROM SIDE WITH SCROLL - start after div is fully in view
   - transformations.css 43-
   - transformations.js 69-
-#### Wordpress Specific
+### Wordpress Specific:
 1. Display different logos for mobile navbar and sticky mobile navbar
   - wordpress/mobile-sticky-nav-logo.html
   - PHP and CSS included in the html file with instructions
+<hr/>
+
+## Helpful Scroll Indicators:
+### 1. Get scroll position (relative to the entire page):
+```
+window.scrollY
+```
+- top of the page: 0
+- bottom of the page: some obnoxiously large number
+
+track with the following js code:
+```
+window.addEventListener("scroll", (event) => {
+  let scrollY = this.scrollY;
+  console.log("scroll:" + scrollY);
+});
+```
+### 2. Get scroll position relative to your div
+```
+yourDIV.getBoundingClientRect().top / yourDIV.getBoundingClientRect().height * 100
+```
+- value = 100 when the top of the div first appears on the screen
+- value = 0 when the top of the div hits the top of the viewport
+- getBoundingClientRect() can also be followed by .bottom, .right, .left
+track with the following js code:
+```
+const yourDIV = document.querySelector('.yourDiv');
+window.addEventListener("scroll", (event) => {
+  console.log("top:" + yourDIV.getBoundingClientRect().top / yourDIV.getBoundingClientRect().height * 100 );
+});
+```
+
