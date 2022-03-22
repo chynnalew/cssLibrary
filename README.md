@@ -32,3 +32,7 @@
 4. MOVE DIV IN FROM SIDE WITH SCROLL - start after div is fully in view
   - transformations.css 43-
   - transformations.js 69-
+#### Wordpress Specific
+1. Display different logos for mobile navbar and sticky mobile navbar
+  - wordpress/mobile-sticky-nav-logo.html
+  - PHP and CSS included in the html file with instructions

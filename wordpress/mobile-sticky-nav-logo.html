@@ -1,0 +1,37 @@
+<!-- Add a different logo image to the mobile sticky navbar and move the menu button to justify right -->
+
+<!-- ADD THE FOLLOWING TO THEME FUNCTIONS: -->
+add_action( 'generate_inside_mobile_header','lh_mobile_logos' );
+function lh_mobile_logos() {
+?>
+    <div class="site-logo mobile-header-logo first-mobile-logo">
+		<a href="homepage-url-goes-here">
+			<img src="first-image-location-goes-here" alt="" />
+		</a>
+    </div>
+    <div class="site-logo mobile-header-logo sticky-header-only">
+		<a href="homepage-url-goes-here">
+			<img src="second-logo-image-location-here" alt="" />
+		</a>
+    </div>
+<?php
+}
+
+<!-- ADD THE FOLLOWING TO THEME STYLESHEET: -->
+.mobile-header-logo.sticky-header-only {
+  display: none !important;
+}
+
+.navigation-stick .mobile-header-logo.sticky-header-only {
+  display: block !important;
+}
+
+.navigation-stick .mobile-header-logo:not(.sticky-header-only) {
+  display: none;
+}
+
+.menu-toggle {
+align-items: flex-end !important;
+flex-grow: 0 !important;
+right:0 !important
+}
