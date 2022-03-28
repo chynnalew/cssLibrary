@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+  </head>
+  <body>
+    <style>
+      body {
+        background-color: grey;
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+      section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid black;
+      }
+      h1 {
+        position: absolute;
+        font-size: 8vw;
+        font-family: sans-serif;
+        line-height: 100vh;
+        color: #3c3c3c;
+        margin: 0 0 0 20px;
+      }
+      h2 {
+        margin: 20px;
+      }
+      .fromLeft {
+        position: relative;
+        width: 400px;
+        height: 150px;
+        color: #333;
+        font-size: 18px;
+        background-color: rgba(250, 250, 250, 0.8);
+      }
+    </style>
+    <section>
+      <h1>Section 01</h1>
+    </section>
+    <section id="sec02">
+      <div class="fromLeft">
+        <h2>Here we are ...</h2>
+      </div>
+    </section>
+    <section>
+      <h1>End</h1>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+      gsap.set(".fromLeft", { xPercent: -50, yPercent: -50 });
+
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#sec02",
+          pin: true,
+          start: "center center",
+          end: "+=150%",
+          scrub: 1,
+          markers: true,
+        },
+        defaults: { duration: 1, ease: "none" },
+      });
+      tl.from(".fromLeft", { xPercent: -180 });
+      tl.to(".fromLeft", { width: "100%", height: "100%" }, "+=1");
+      tl.to({}, { duration: 1 }); // an empty tween = a little pause ...
+    </script>
+  </body>
+</html>

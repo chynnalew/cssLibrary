@@ -30,11 +30,13 @@
   - transformations.css 31-41
   - transformations.js 56-67
 4. MOVE DIV IN AND ZOOM IN WITH SCROLL
-  - transformations.js 69-79
-  -
+  - transformations.js 69-81
+  - transformations.css 43-52
 5. WIP MOVE DIV IN FROM SIDE WITH SCROLL - start after div is fully in view
   - transformations.css 43-
   - transformations.js 69-
+6. Expanding circle sticky hero
+  - transform/expanding-circle-sticky.html
 ### Wordpress Specific:
 1. Display different logos for mobile navbar and sticky mobile navbar
   - wordpress/mobile-sticky-nav-logo.html

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expanding circle Sticky</title>
+  </head>
+  <body>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+        top: 0;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .scroll-container {
+        height: 700vh;
+      }
+      .sticky-hero-container {
+        min-height: 90vh;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        background-color: grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .circle-image {
+        height: 0%;
+        width: 0%;
+        border-radius: 100%;
+        overflow: hidden;
+        position: absolute;
+        background-color: #ccc;
+        background-size: cover;
+        display: none;
+      }
+      .circle-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+        width: 100%;
+        transform: translate(-100%, 0)
+
+      }
+    </style>
+
+    <div class="scroll-container">
+      <div class="sticky-hero-container">
+        <div class="hero-text-1">
+          <h2 class="text-1">TITLE</h2>
+        </div>
+        <div class="circle-image">
+          <div class="circle-text">
+            <h2 >TAGLINE HERE</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="color: pink; height: 200vh"></div>
+
+    <script type="text/javascript">
+      const stickyContainer = document.querySelector(".sticky-hero-container");
+      const circleDiv = document.querySelector(".circle-image");
+      const scrollDiv = document.querySelector(".scroll-container");
+      const circleText = document.querySelector(".circle-text");
+      window.addEventListener("scroll", function () {
+        let scrollTop = window.pageYOffset;
+        const startCircleAnim = 500;
+        if (scrollTop >= startCircleAnim) {
+          let scrollAmount = scrollTop - startCircleAnim;
+          let amountScrolled = scrollAmount / 15;
+          //console.log(amountScrolled);
+          circleDiv.style.animation = "fadeIn 1s";
+          circleDiv.style.display = "block";
+          circleDiv.style.height = amountScrolled + "%";
+          circleDiv.style.width = amountScrolled + "%";
+          if(amountScrolled >= 100) {
+            console.log(-(200-amountScrolled))
+            circleText.style.transform = "translate(" + -(200-amountScrolled) + "% ,0)"
+            if(-(200-amountScrolled) >= 0) {
+              circleText.style.transform = "translate(0, 0)";
+              stickyContainer.style.position = "block";
+            }
+          }
+        } else {
+          circleDiv.style.display = "none";
+          circleDiv.style.animation = "none";
+        
+        }
+      });
+    </script>
+  </body>
+</html>
