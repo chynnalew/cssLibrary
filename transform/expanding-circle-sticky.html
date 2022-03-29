@@ -4,18 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Expanding circle Sticky</title>
+    <title>Document</title>
   </head>
   <body>
     <style>
-      * {
-        box-sizing: border-box;
+      .h-200px {
+        max-height: 200px !important;
+        width: 100%;
+        overflow: hidden;
       }
-      body {
-        padding: 0;
-        margin: 0;
-        top: 0;
+
+      .full-page-width {
+        margin-left: calc(-100vw / 2 + 100% / 2);
+        margin-right: calc(-100vw / 2 + 100% / 2);
+        max-width: 100vw;
+        width: auto;
       }
+
+      /* Homepage header 2*/
       @keyframes fadeIn {
         0% {
           opacity: 0;
@@ -24,13 +30,21 @@
           opacity: 1;
         }
       }
+      @keyframes fadeOut {
+        0% {
+          opacity: 100%;
+        }
+        100% {
+          opacity: 0%;
+        }
+      }
       .scroll-container {
-        height: 700vh;
+        height: 600vh;
       }
       .sticky-hero-container {
-        min-height: 90vh;
+        min-height: 100vh;
         width: 100%;
-        position: sticky;
+        position: fixed !important;
         top: 0;
         background-color: grey;
         display: flex;
@@ -38,69 +52,96 @@
         align-items: center;
         overflow: hidden;
       }
+      .sticky-hero-container
+        > .wp-block-cover-image
+        .wp-block-cover__inner-container,
+      .wp-block-cover .wp-block-cover__inner-container {
+        height: 100vh !important;
+        width: 100vw !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       .circle-image {
-        height: 0%;
+        /*      height: 0%; */
+        height: auto;
         width: 0%;
         border-radius: 100%;
         overflow: hidden;
         position: absolute;
         background-color: #ccc;
-        background-size: cover;
         display: none;
       }
       .circle-text {
         display: flex;
         justify-content: center;
         align-items: center;
-        height:100%;
-        width: 100%;
-        transform: translate(-100%, 0)
-
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        transform: translate(-300%, 0);
+        position: absolute;
       }
     </style>
-
-    <div class="scroll-container">
-      <div class="sticky-hero-container">
-        <div class="hero-text-1">
-          <h2 class="text-1">TITLE</h2>
-        </div>
-        <div class="circle-image">
-          <div class="circle-text">
-            <h2 >TAGLINE HERE</h2>
+    <section>
+      <div class="scroll-container">
+        <div class="sticky-hero-container">
+          <div class="hero-text-1">
+            <h2 class="text-1">TITLE</h2>
+          </div>
+          <div class="circle-image">
+            <div class="circle-text">
+              <h2>TAGLINE HERE</h2>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div style="color: pink; height: 200vh"></div>
-
-    <script type="text/javascript">
+    </section>
+    <script>
+      const scrollContainer = document.querySelector(".scroll-container");
       const stickyContainer = document.querySelector(".sticky-hero-container");
       const circleDiv = document.querySelector(".circle-image");
       const scrollDiv = document.querySelector(".scroll-container");
       const circleText = document.querySelector(".circle-text");
       window.addEventListener("scroll", function () {
         let scrollTop = window.pageYOffset;
-        const startCircleAnim = 500;
-        if (scrollTop >= startCircleAnim) {
-          let scrollAmount = scrollTop - startCircleAnim;
-          let amountScrolled = scrollAmount / 15;
-          //console.log(amountScrolled);
-          circleDiv.style.animation = "fadeIn 1s";
+        let elementOffset = scrollContainer.getBoundingClientRect().top;
+        let scale = (-(elementOffset - scrollTop) / window.innerHeight) * 10;
+        console.log(scale);
+        console.log(100 - (65 - (scale - 15) * 3));
+        const circleAnim = 100 - (65 - (scale - 15) * 3);
+        console.log("circle anim: " + circleAnim);
+        console.log(
+          "translate(" + ((100 - (circleAnim - 200)) * -1 + 10) + "% ,0)"
+        );
+
+        if (circleAnim >= 5) {
+          circleDiv.style.animation = "fadeIn .5s";
           circleDiv.style.display = "block";
-          circleDiv.style.height = amountScrolled + "%";
-          circleDiv.style.width = amountScrolled + "%";
-          if(amountScrolled >= 100) {
-            console.log(-(200-amountScrolled))
-            circleText.style.transform = "translate(" + -(200-amountScrolled) + "% ,0)"
-            if(-(200-amountScrolled) >= 0) {
-              circleText.style.transform = "translate(0, 0)";
-              stickyContainer.style.position = "block";
+          circleDiv.style.height = circleAnim + "%";
+          circleDiv.style.width = circleAnim + "%";
+          if (circleAnim < 100) {
+            circleText.style.visibility = "hidden";
+          } else if (circleAnim >= 100) {
+            circleDiv.style.borderRadius = 200 - circleAnim + "%";
+            console.log("border-radius: " + (200 - circleAnim) + "%");
+            circleDiv.style.height = "100%";
+            circleDiv.style.width = "100%";
+
+            if (circleAnim >= 200 && circleAnim <= 290) {
+              circleText.style.visibility = "visible";
+              circleText.style.transform =
+                "translate(" +
+                ((100 - (circleAnim - 200)) * -1 + 10) +
+                "% , 0)";
             }
           }
         } else {
-          circleDiv.style.display = "none";
-          circleDiv.style.animation = "none";
-        
+          circleDiv.style.animation = "fadeOut 1s";
+          setTimeout(function () {
+            circleDiv.style.display = "none";
+          }, 500);
         }
       });
     </script>
