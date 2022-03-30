@@ -98,6 +98,7 @@
         </div>
       </div>
     </section>
+    <div style="height: 300vh; background-color: blue"></div>
     <script>
       const scrollContainer = document.querySelector(".scroll-container");
       const stickyContainer = document.querySelector(".sticky-hero-container");
@@ -109,39 +110,49 @@
         let elementOffset = scrollContainer.getBoundingClientRect().top;
         let scale = (-(elementOffset - scrollTop) / window.innerHeight) * 10;
         console.log(scale);
-        console.log(100 - (65 - (scale - 15) * 3));
-        const circleAnim = 100 - (65 - (scale - 15) * 3);
-        console.log("circle anim: " + circleAnim);
-        console.log(
-          "translate(" + ((100 - (circleAnim - 200)) * -1 + 10) + "% ,0)"
-        );
+        console.log(100-(65-((scale-15) * 3)));
+        const circleAnim = 100-(65-((scale-15) * 3));
+        console.log("circle anim: " + circleAnim)
+        console.log("translate(" + ((100 - ((circleAnim )-200)) * -1 + 10) + "% ,0)")
 
-        if (circleAnim >= 5) {
-          circleDiv.style.animation = "fadeIn .5s";
+        if(circleAnim >= 5){
+          circleDiv.style.animation = "fadeIn .2s";
           circleDiv.style.display = "block";
           circleDiv.style.height = circleAnim + "%";
-          circleDiv.style.width = circleAnim + "%";
-          if (circleAnim < 100) {
-            circleText.style.visibility = "hidden";
-          } else if (circleAnim >= 100) {
-            circleDiv.style.borderRadius = 200 - circleAnim + "%";
-            console.log("border-radius: " + (200 - circleAnim) + "%");
+          circleDiv.style.width = circleAnim + "%"
+          if (circleAnim < 100){
+            circleText.style.visibility="hidden";
+          } else if (circleAnim >= 90){
+            circleDiv.style.borderRadius = (150 - circleAnim) + "%";
+            console.log("border-radius: " + (150 - circleAnim) + "%")
             circleDiv.style.height = "100%";
             circleDiv.style.width = "100%";
 
-            if (circleAnim >= 200 && circleAnim <= 290) {
-              circleText.style.visibility = "visible";
-              circleText.style.transform =
-                "translate(" +
-                ((100 - (circleAnim - 200)) * -1 + 10) +
-                "% , 0)";
+            if(circleAnim >= 200 && circleAnim <= 290){
+              circleText.style.visibility="visible"
+              circleText.style.transform = "translate(" + ((100 - ((circleAnim )-200)) * -1 + 10) + "% , 0)"	
+            } 
+            if (circleAnim <= 340){
+              stickyContainer.style.animation="fadeIn .5s";
+              setTimeout(function(){
+                stickyContainer.style.display = "flex";
+                console.log("shown")
+              }, 500);
+            } else if (circleAnim >340) {
+              stickyContainer.style.animation="fadeOut .5s";
+              setTimeout(function(){
+                stickyContainer.style.display = "none";
+            console.log('hidden')
+          }, 500)
             }
-          }
+          }   
+
         } else {
-          circleDiv.style.animation = "fadeOut 1s";
-          setTimeout(function () {
+          circleDiv.style.animation="fadeOut .5s";
+          setTimeout(function(){
             circleDiv.style.display = "none";
-          }, 500);
+            console.log('reached end')
+          }, 500)
         }
       });
     </script>
