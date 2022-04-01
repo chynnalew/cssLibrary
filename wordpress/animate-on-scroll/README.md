@@ -6,3 +6,8 @@ to use animate.css
 to use WOW (delay animation till scroll)
 - use class .wow and class .animate__yourAnimation
 - animation list here: https://animate.style/
+
+be sure to add the following to your theme css to prevent load stuttering:
+.wow {
+  visibility: hidden !important;
+}
