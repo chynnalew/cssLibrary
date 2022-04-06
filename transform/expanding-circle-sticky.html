@@ -64,7 +64,7 @@
         overflow: hidden;
         position: absolute;
         background-color: #ccc;
-        display: none;
+        visibility: hidden;
         transition: 0.6s ease-out;
       }
       .circle-text {
@@ -102,20 +102,23 @@
       const circleDiv = document.querySelector(".circle-image");
       const scrollDiv = document.querySelector(".scroll-container");
       const circleText = document.querySelector(".circle-text");
-	
-      window.addEventListener("scroll", function () {
+
+      window.addEventListener("scroll", function (event) {
+        event.preventDefault();
         let scrollTop = window.pageYOffset;
         let elementOffset = scrollContainer.getBoundingClientRect().top;
         let scale = (-(elementOffset - scrollTop) / window.innerHeight) * 10;
         const circleAnim = 100-(65-((scale-15) * 3));
+        console.log(circleAnim)
         if (circleAnim < 100){
             circleText.style.visibility="hidden";
         } else {
           circleText.style.visibility="visible";
         }
 
-        if(circleAnim >= 0){
-          circleDiv.style.display = "block";
+        if(circleAnim >= 16){
+          circleDiv.style.visibility = "visible";
+          circleDiv.style.animation= "fadeIn .5s";
           circleDiv.style.height = circleAnim + "%";
           circleDiv.style.width = circleAnim + "%";
           
@@ -124,17 +127,16 @@
             circleDiv.style.height = "100%";
             circleDiv.style.width = "100%";
 
-            if(circleAnim > 200 && circleAnim < 290){
+            if(circleAnim > 200 ){
               circleDiv.style.borderRadius = "0%";
-              circleText.style.transform = "translate(" + ((100 - ((circleAnim )-200)) * -1 + 10) + "% , 0)"	
+              if (circleAnim < 293){
+                circleText.style.transform = "translate(" + ((100 - ((circleAnim )-200)) * -1 + 10) + "% , 0)"	
+              }
             }
           }
           
         } else {
-          circleDiv.style.animation="fadeOut .5s";
-          setTimeout(function(){
-            circleDiv.style.display = "none";
-          }, 500)
+          circleDiv.style.visibility = "hidden";
         }
       });
     </script>
