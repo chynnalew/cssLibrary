@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Move In Title</title>
+  </head>
+  <body>
+    <style>
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+        padding-bottom: 4vmin;
+        height: 90vh;
+        width: 100%;
+        background: #e6ded7;
+        color: #3a3535;
+      }
+
+      body {
+        display: grid;
+        padding: 3vmin;
+        background: #e6ded7;
+        overflow-x: hidden;
+        box-sizing: border-box;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
+      .title {
+        padding-left: 1em;
+        grid-column: 1 / -1;
+        grid-row: 1;
+        font-family: "Prata", serif;
+        font-size: 8vw;
+        z-index: 2;
+      }
+      .title-inner {
+        display: inline-block;
+      }
+      @keyframes text-clip {
+        from {
+          clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+        }
+        to {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+      }
+      @keyframes outer-left {
+        from {
+          transform: translateX(50%);
+        }
+        to {
+          transform: none;
+        }
+      }
+      @keyframes inner-left {
+        from {
+          transform: translateX(50%);
+        }
+        to {
+          transform: none;
+        }
+      }
+      .text-1,
+      .text-2 {
+        animation: outer-left 1s 1s cubic-bezier(0.5, 0, 0.1, 1) both;
+      }
+      .title-inner {
+        display: inline-block;
+        animation: inner-left 1s 1s ease both;
+      }
+      .text-1-inner {
+        display: inline-block;
+        animation: inner-left 1s 1s ease both,
+          text-clip 1s 0s cubic-bezier(0.5, 0, 0.1, 1) both;
+      }
+      .text-2-inner {
+        animation: text-clip 1s 0s cubic-bezier(0.5, 0, 0.1, 1) both;
+      }
+      .image {
+        height: 100%;
+        grid-row: 1;
+        grid-column: 2;
+        margin-left: -2rem;
+        opacity: 0.7;
+        animation: image-in 1s cubic-bezier(0.5, 0, 0.1, 1) 2s backwards;
+        overflow: hidden;
+      }
+      @keyframes image-in {
+        from {
+          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        }
+        to {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+      }
+    </style>
+
+    <section class="hero">
+      <div class="title">
+        <div class="title-inner">
+          <div class="text-1">
+            <div class="text-1-inner">text</div>
+          </div>
+          <div class="text-2">
+            <div class="text-2-inner">more text</div>
+          </div>
+        </div>
+      </div>
+      <div class="image">
+        <img
+          src="https://images.unsplash.com/photo-1567880905822-56f8e06fe630?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+          alt="unsplash text-1 image by keghan crossland"
+        />
+      </div>
+    </section>
+  </body>
+</html>
