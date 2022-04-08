@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/ScrollTrigger.min.js"></script>	
+    <title>GSAP</title>
+  </head>
+  <body>
+    <!-- beginning of style -->
+    <style>
+      body {
+        margin: 10px;
+      }
+      .box {
+        display: block;
+      }
+      .orange {
+        height: 40px;
+        width: 40px;
+        margin: 5px;
+        background-color: orange;
+      }
+      .grey {
+        height: 40px;
+        width: 40px;
+        margin: 5px;
+        background-color: grey;
+      }
+      .green {
+        height: 40px;
+        width: 40px;
+        margin: 5px;
+        background-color: green;
+      }
+      .pink {
+        height: 40px;
+        width: 40px;
+        margin: 5px;
+        background-color: pink;
+        left: 0;
+      }
+      .animation {
+        height:50vh;
+        background:#FFCA28;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        
+      }
+      .herman {
+        width:25vh;
+      }
+      .bottom {
+        height: 100vw;
+        background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,0.65) 100%), url(https://assets.codepen.io/32887/jonathan-riley-VW8MUbHyxCU-unsplash.jpg) no-repeat center top scroll;
+        background-size: cover;
+      }
+      h1 {
+        font-family: 'Barlow Semi Condensed', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        color: #eee;
+        font-size: 11vmin;
+        letter-spacing: 0.03em;
+        line-height: 1;
+        text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+        margin-bottom: 40px;
+      }
+      button {
+        background: #DD2C00;
+        transition: background ease .25s;
+        border-radius: 5px;
+        display: inline-block;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        margin: 0;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1.2rem;
+        cursor: pointer;
+        text-align: center;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+      button:hover {
+        background: #63b6b8
+      }
+      button:focus {
+        outline: 1px solid #fff;
+        outline-offset: -4px;
+      }
+    </style>
+
+    <!-- beginning of html -->
+    <hr class="instructions">
+      <h1>Adding GSAP to a project</h1>
+      <p>
+        HTML: add script link to cdn in head, add animation script at the bottom
+        of the body
+      </p>
+      <p>
+        WORDPRESS: add cdn script with enqueue in theme functions.php. add
+        animation script with EITHER: 1. enqueue in theme functions or 2.
+        Generate press hook element in footer
+      </p>
+      <h2>DOCS</h2>
+      <p>
+        Docs:
+        <a href="https://greensock.com/docs/">https://greensock.com/docs/</a>
+      </p>
+      <p>
+        Getting started:
+        <a href="https://greensock.com/get-started/#loading-gsap"
+          >https://greensock.com/get-started/#loading-gsap</a
+        >
+      </p>
+      <p>
+        Plugins:
+        <a href="https://greensock.com/gsap-plugins/"
+          >https://greensock.com/gsap-plugins/</a
+        >
+        <br>
+        <a href="https://greensock.com/docs/v3/Plugins/ScrollTrigger">Scroll trigger docs</a>
+      </p>
+      <p>
+        Tweens:
+        <a href="https://greensock.com/docs/v3/GSAP/Tween/">https://greensock.com/docs/v3/GSAP/Tween/</a>
+      </p>
+      <hr>
+    </section>
+
+    <section class="basic-usage">
+      <h1 class="title">gsap.to() Basic Usage</h1>
+      <div class="box orange"></div>
+      <div class="box grey"></div>
+      <div class="box green"></div>
+      <div id="output"></div>
+    </section>
+
+    <section>
+      <div class="logo-wrap">
+        <img src="https://via.placeholder.com/468x60" alt="" class="logo" />
+      </div>
+    </section>
+
+    <section>
+      <h1>Using Tweens</h1>
+      <div class="pink"></div>
+
+      <div class="nav">
+        <button id="play">play()</button>
+        <button id="pause">pause()</button>
+        <button id="resume">resume()</button>
+        <button id="reverse">reverse()</button>
+        <button id="restart">restart()</button>
+      </div>
+    </section>
+
+    <section>
+      <h1>Scroll To Plugin</h1>
+      <p>add the scroll to cdn to the head of your project</p>
+      <p>https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/ScrollToPlugin.min.js</p>
+      <div class="animation">
+        <img class="herman" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/32887/herman.svg" />
+      </div>
+      <div class="bottom">
+      </div>
+    </section>
+
+    <!-- beginning of script -->
+    <script>
+      const output = document.querySelector("#output");
+      gsap.to("h1.title", { duration: 1, opacity: 0.5 });
+      gsap.to(".box", { duration: 2, x: 300 });
+      gsap.to(".green", {
+        duration: 3,
+        rotation: 360,
+        scale: 0.5,
+        onStart: showMessage,
+        onStartParams: ["the green div has started to move"],
+        onComplete: showMessage,
+        onCompleteParams: ["the green div is done moving"],
+      });
+      function showMessage(message) {
+        output.innerHTML += message + "</br>";
+      }
+      gsap.to(".logo", { duration: 10, x: "50%" });
+
+      var tween = gsap.to(".pink", {
+      duration: 4, 
+      x: "100vw", 
+      rotation: 360, 
+      ease: "none", 
+      paused: true
+      });
+      // click handlers for controlling the tween instance...
+      document.querySelector("#play").onclick = () => tween.play();
+      document.querySelector("#pause").onclick = () => tween.pause();
+      document.querySelector("#resume").onclick = () => tween.resume();
+      document.querySelector("#reverse").onclick = () => tween.reverse();
+      document.querySelector("#restart").onclick = () => tween.restart();
+
+      gsap.registerPlugin(ScrollTrigger)
+      gsap.from(".herman", {
+        duration:1, 
+        x:"-50vw", 
+        rotation:-360, 
+        ease:"linear", 
+        scrollTrigger: {
+          trigger:".herman",
+          markers: true,
+          start: "top: 70%",
+          end: "bottom: 25%",
+          toggleActions:"play none reverse none"
+        }
+      }) 
+
+    </script>
+  </body>
+</html>
