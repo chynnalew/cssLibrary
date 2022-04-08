@@ -37,6 +37,8 @@
   - transformations.js 69-
 6. Expanding circle sticky hero
   - transform/expanding-circle-sticky.html
+7. Underline text on hover
+  - transform/underline.html
 ### Wordpress Specific:
 1. Display different logos for mobile navbar and sticky mobile navbar
   - wordpress/mobile-sticky-nav-logo.html
