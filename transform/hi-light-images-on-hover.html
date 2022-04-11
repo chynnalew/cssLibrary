@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hi-light images on hover</title>
+</head>
+<body>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: monospace;
+    }
+    h1, h2 {
+      margin:0;
+      font-style: italic;
+    }
+    h1 {
+      font-size: calc(5vw);
+      position: relative;
+      z-index: 2;
+    }
+    .hero {
+      background-color: rgb(71, 44, 71);
+      padding: 40px 20px;
+      color: #fff;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-gap: 2vmin;
+      grid-template-columns: repeat(auto-fill, minmax(25vmin, auto))
+    }
+    
+    img {
+      display: block;
+      object-fit: cover;
+      max-height: 20vh;
+      filter: blur(1px) grayscale(20%);
+      transition: all .2s
+    }
+    a {
+      overflow: hidden;
+      display: grid;
+      grid-template-areas: cell;
+      place-items: end;
+      position:  relative;
+      text-decoration: none;
+    }
+    img, span {
+      grid-area: cell
+    }
+    span {
+      z-index: 2;
+      padding: 5px;
+      background-color: #fff;
+      font-size: 20px;
+      border-left: solid 4px purple;
+      transform: translateX(100%);
+      transition: all .4s ease-in;
+      opacity: 0;
+    }
+    a:hover img, a:focus img{
+      filter: none;
+    }
+    a:hover span, a:focus span{
+      opacity:1;
+      transform: translateX(0);
+    }
+  </style>
+
+  <header class="hero">
+    <h1>Hover over the images!</h1>
+    <nav>
+      <ul role="list">
+        <li><a href="https://placeholder.com"><img src="https://via.placeholder.com/200"><span>TEXT HERE</span></a></li>
+        <li><a href="https://placeholder.com"><img src="https://via.placeholder.com/200"><span>TEXT HERE</span></a></li>
+        <li><a href="https://placeholder.com"><img src="https://via.placeholder.com/200"><span>TEXT HERE</span></a></li>
+        <li><a href="https://placeholder.com"><img src="https://via.placeholder.com/200"><span>TEXT HERE</span></a></li>
+        <li><a href="https://placeholder.com"><img src="https://via.placeholder.com/200"><span>TEXT HERE</span></a></li>
+        <li><a href="https://placeholder.com"><img src="https://via.placeholder.com/200"><span>TEXT HERE</span></a></li>
+        <li><a href="https://placeholder.com"><img src="https://via.placeholder.com/200"><span>TEXT HERE</span></a></li>
+        <li><a href="https://placeholder.com"><img src="https://via.placeholder.com/200"><span>TEXT HERE</span></a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Dynamic CSS powered hover effect for images</h2>
+  </main>
+</body>
+</html>
