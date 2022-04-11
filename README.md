@@ -14,6 +14,9 @@
   - directions and example included in the html
 2. Border with text using fieldset
   - borders/text-border.html
+### Images / SVG:
+1. draw SVG path with scroll
+  - images-and-svg/svg-animated-with-scroll.html
 ### SPACING:
 1. bootstrap like margins and padding
   - wp-spacing.css

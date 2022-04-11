@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text color change with scroll</title>
+</head>
+<body>
+  <style>
+    body {
+      margin: 0;
+      min-height: 6000px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .outer-container {
+      max-width: 600px;
+      margin: auto;
+      width: 90%;
+      padding: 200px 0px;
+      position: relative;
+    }
+    .image-container {
+      background-image: url('https://images.unsplash.com/photo-1570528812862-9984124e7e22?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ');
+      height:200px;
+      width:200px;
+      position: relative;
+      overflow: hidden;
+      z-index: 2;
+      background-size: cover;
+      background-position: center;
+    }
+    .section-title {
+      margin: 0;
+      font-size: 64px;
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: -30%;
+      transform: translateY(-50%);
+      z-index: 0;
+      white-space: nowrap;
+    }
+    .on-dark {
+      color: white;
+    }
+      
+    span {
+      position: relative;
+      display: block;
+    }
+  </style>
+
+  <div class="outer-container">
+    <div class="image-container">
+      
+      <h2 class="section-title on-dark">
+        <span class="parallax-title">
+          Live The Adventure
+        </span>
+      </h2>
+    </div>
+    
+    <h2 class="section-title">
+      <span class="parallax-title">
+        Live The Adventure
+      </span>
+    </h2>
+  </div>
+
+  <script>
+    let didScroll = false;
+    let parallaxTitles = document.querySelectorAll('.parallax-title');
+
+    const scrollInProgress = () => {
+      didScroll = true
+    }
+
+    const raf = () => {
+      if(didScroll) {
+        parallaxTitles.forEach((element, index) => {
+          element.style.transform = "translateX("+ window.scrollY / 10 + "%)"
+        })
+        didScroll = false;
+      }
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+    window.addEventListener('scroll', scrollInProgress)
+  </script>
+</body>
+</html>
