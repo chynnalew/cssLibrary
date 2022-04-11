@@ -12,6 +12,8 @@
 1. Quote boarder with half circles and quotation marks
   - ./borders/half-circle-border-quote.html
   - directions and example included in the html
+2. Border with text using fieldset
+  - borders/text-border.html
 ### SPACING:
 1. bootstrap like margins and padding
   - wp-spacing.css
@@ -39,6 +41,8 @@
   - transform/expanding-circle-sticky.html
 7. Underline text on hover
   - transform/underline.html
+8. Show images / text on hover 
+  - transform/li-light-images-on-hover.html
 ### Wordpress Specific:
 1. Display different logos for mobile navbar and sticky mobile navbar
   - wordpress/mobile-sticky-nav-logo.html
