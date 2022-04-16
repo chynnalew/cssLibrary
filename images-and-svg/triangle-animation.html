@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    :root {
+      --dark-color: #ff2a2a;
+      --light-color: #EFD254;
+    }
+    #one{
+      fill: var(--light-color);
+      opacity: 50%
+    }
+    #two{
+      fill: var(--dark-color);
+      opacity: 50%
+    }
+    #three{
+      fill: var(--light-color);
+      opacity: 50%
+    }
+
+    svg{
+      cursor:pointer;
+    }
+
+    .one, .two, .three, #one, #two, #three {
+      transition: all 1s ease;
+    }
+    
+    .three{
+      transform: translateX(-100%)
+    }
+    svg:hover .one{
+      transform: translateX(20%)
+    }
+    svg:hover #one{
+      fill: var(--light-color);
+      opacity: 100%;
+    }
+    svg:hover .two{
+      transform: translateX(50%);
+    }
+    svg:hover #two{
+      opacity:0;
+    }
+    svg:hover .three{
+      transform: translateX(25%)
+    }
+    svg:hover #three{
+      fill: var(--dark-color);
+      opacity: 100%
+    }
+
+  </style>
+  <svg
+   width="200"
+   height="200"
+   viewBox="0 0 26.458333 26.458334"
+   >
+    <g class="one">
+      <path
+       sodipodi:type="star"
+       style="fill-rule:evenodd;stroke-width:6.15176;stroke-linecap:round;fill-opacity:1"
+       id="one"
+       inkscape:flatsided="false"
+       sodipodi:sides="3"
+       sodipodi:cx="6.2086267"
+       sodipodi:cy="8.2781687"
+       sodipodi:r1="42.871006"
+       sodipodi:r2="21.435503"
+       sodipodi:arg1="0.1746722"
+       sodipodi:arg2="1.2218698"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 48.427289,15.728521 13.537194,28.421974 -21.352898,41.115426 -14.900704,4.5529916 -8.44851,-32.009441 19.98939,-8.1404595 Z"
+       transform="matrix(0.20217013,-0.03361694,0.0370122,0.22258899,9.2792254,11.840936)"
+       inkscape:transform-center-x="-2.1783691"
+       inkscape:transform-center-y="-0.11955153" />
+    </g>
+
+    <g class="two">
+      <path
+       sodipodi:type="star"
+       style="fill-rule:evenodd;stroke-width:6.15176;stroke-linecap:round"
+       id="two"
+       inkscape:flatsided="false"
+       sodipodi:sides="3"
+       sodipodi:cx="6.2086267"
+       sodipodi:cy="8.2781687"
+       sodipodi:r1="42.871006"
+       sodipodi:r2="21.435503"
+       sodipodi:arg1="0.1746722"
+       sodipodi:arg2="1.2218698"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 48.427289,15.728521 13.537194,28.421974 -21.352898,41.115426 -14.900704,4.5529916 -8.44851,-32.009441 19.98939,-8.1404595 Z"
+       transform="matrix(0.20217013,-0.03361694,0.0370122,0.22258899,3.913075,11.840936)"
+       inkscape:transform-center-x="-2.1783691"
+       inkscape:transform-center-y="-0.11955153" />
+    </g>
+
+    <g class="three">
+      <path
+         sodipodi:type="star"
+         style="fill-opacity:1;fill-rule:evenodd;stroke-width:6.15176;stroke-linecap:round"
+         id="three"
+         inkscape:flatsided="false"
+         sodipodi:sides="3"
+         sodipodi:cx="6.2086267"
+         sodipodi:cy="8.2781687"
+         sodipodi:r1="42.871006"
+         sodipodi:r2="21.435503"
+         sodipodi:arg1="0.1746722"
+         sodipodi:arg2="1.2218698"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="M 48.427289,15.728521 13.537194,28.421974 -21.352898,41.115426 -14.900704,4.5529916 -8.44851,-32.009441 19.98939,-8.1404595 Z"
+         transform="matrix(0.20217013,-0.03361694,0.0370122,0.22258899,3.913075,11.840936)"
+         inkscape:transform-center-x="-2.1783691"
+         inkscape:transform-center-y="-0.11955153" />
+    </g>
+</svg>
+
+</body>
+</html>

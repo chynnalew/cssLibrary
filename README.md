@@ -17,6 +17,10 @@
 ### Images / SVG:
 1. draw SVG path with scroll
   - images-and-svg/svg-animated-with-scroll.html
+2. Wave SVG
+  - images-and-svg/wave.html
+3. Animated SVG triangles 
+- images-and-svg/triangle-animation.html
 ### SPACING:
 1. bootstrap like margins and padding
   - wp-spacing.css
