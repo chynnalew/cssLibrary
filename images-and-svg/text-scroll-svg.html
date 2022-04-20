@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      body {
+        padding: 50px 10vw;
+      }
+      p {
+        font-size: 30px;
+      }
+      li {
+        font-size: 24px;
+      }
+    </style>
+
+    <h1>Animate svg text path with scroll!</h1>
+    <p>
+      How to curve the text on the svg path:
+      <ol>
+        <li>Add an svg! (give it an id)</li>
+        <li>Give the svg path an id too!</li>
+        <li>Add a text tag in the svg (under the path tag)</li>
+        <li>
+          within the text tag, add a textPath tag with attributes: href='#path-id' and startOffset='*number' (change the *number to determine where the text starts on the path)
+        </li>
+        <li> Give the textPath a unique id</li>
+        <li>Add your text within the textPath tag and watch it curve!</li>
+      </ol>
+    </p>
+    <p>
+      How to animate it:
+      <ol>
+        <li>Store the text path, text container, path in variables</li>
+        <li>store the path length in a variable</li>
+        <li>Write a function to update the offset of the text (this is what will cause it to move). </li>
+        <li>Write an onScroll function to control the animation. 
+          <ul>
+            <li>
+            Wrap the contents of the onScroll animation in requestAnimationFrame() so the page will only call the function if a new frame is rendered (prevents the animation from being jerky)
+            </li>
+            <li> In this function, use getBoundingClientRect to get the textContainer's position in the document.</li>
+            <li>Get the percentage of where the path is in the viewport by dividing the y rect by the window inner height (0=top, 1=bottom)</li>
+            <li>change the offset by pathLength * percentage</li>
+          </ul>
+        </li>
+        <li>Scroll down to see the effect!</li>
+      </ol>
+    </p>
+
+    <svg id='text-container' viewBox="0 0 210 48">
+      <path
+        id="text-curve"
+        d="M10.513 24.093s46.653-44.024 90.677 0c44.025 44.024 97.248 0 97.248 0"
+        fill="none"
+        stroke="#000"
+        stroke-width=".265"
+      />
+      <text y="0" font-size="8">
+        <textPath id='text-path' href="#text-curve" startOffset="0">look at me go!</textPath>
+      </text>
+    </svg>
+
+    <p>
+      Civibus nominavi maiestatis vix te, audire percipitur ad quo. Velit mazim
+      erroribus ea duo, nobis molestie adipisci mei in. Possim malorum pericula
+      nec cu, ei nulla verear integre est. Sumo delenit periculis te nam, solum
+      principes disputando sea ex. Ei delectus voluptatum has, ius no everti
+      eleifend, purto senserit id mel. Laoreet mentitum nec ad. An vim unum
+      aliquam necessitatibus, et brute feugiat inermis vim. Ex mel ornatus
+      recteque, nobis epicuri eligendi ad nam. In case nostrum deleniti cum, vel
+      oblique aliquando in. Facilis petentium disputationi ex vis.
+    </p>
+    <p>
+      <a href="https://www.youtube.com/watch?v=Tae96ze3xwY">created using quick tips by @ keyframers on youtube</a>
+    </p>
+  </body>
+
+  <script>
+    const textPath = document.querySelector('#text-path');
+    const textContainer = document.querySelector('#text-container');
+    const path = document.querySelector('#text-curve');
+    const pathLength = path.getTotalLength();
+
+    function updateTextPathOffset(offset){
+      textPath.setAttribute('startOffset', offset)
+    }
+
+    function onScroll(){
+      requestAnimationFrame(function(){
+        let rect = textContainer.getBoundingClientRect();
+        let scrollPercent = rect.y / window.innerHeight;
+        updateTextPathOffset(scrollPercent * pathLength);
+      })
+    }
+    window.addEventListener('scroll', onScroll)
+  </script>
+</html>

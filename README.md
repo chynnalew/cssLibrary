@@ -20,7 +20,9 @@
 2. Wave SVG
   - images-and-svg/wave.html
 3. Animated SVG triangles 
-- images-and-svg/triangle-animation.html
+  - images-and-svg/triangle-animation.html
+4. SVG text path animation on scroll
+  - images-and-svg/text-scroll-svg.html
 ### SPACING:
 1. bootstrap like margins and padding
   - wp-spacing.css
