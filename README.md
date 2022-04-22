@@ -8,6 +8,10 @@
 1. Return to top of page
   - buttons.css 1-14
   - buttons.js 1-13
+2. Basic JS accordion
+  - buttons/accordion.html
+3. Accordion using js class (from w3 schools)
+  - buttons/expand-faq.html
 ### BORDERS:
 1. Quote boarder with half circles and quotation marks
   - ./borders/half-circle-border-quote.html

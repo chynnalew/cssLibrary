@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    dl.faq button {
+      margin: 0;
+      margin-top: 16px;
+      padding: 4px 8px;
+      font-weight: bold;
+      font-size: 110%;
+      border: none;
+      background-color: transparent;
+      border-radius: 5px;
+    }
+
+    dl dd {
+      margin: 0;
+      padding: 0;
+      margin-left: 1.5em;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #777;
+    }
+
+    dl.faq .desc {
+      margin: 0;
+      margin-top: 0.25em;
+      padding: 0.25em;
+      font-size: 110%;
+      display: none;
+      background-color: #fed;
+    }
+
+    dl.faq button:hover,
+    dl.faq button:focus {
+      padding: 2px 6px;
+      background-color: #def;
+      border: 2px solid #005a9c;
+      cursor: pointer;
+    }
+
+    dl.faq button[aria-expanded="false"]::before {
+      content: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' style='forced-color-adjust: auto;'%3E%3Cpolygon points='1 1, 1 11, 8 6' fill='currentColor' stroke= 'currentColor' /%3E%3C/svg%3E%0A");
+      position: relative;
+      left: -2px;
+    }
+
+    dl.faq button[aria-expanded="true"]::before {
+      content: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' style='forced-color-adjust: auto;'%3E%3Cpolygon points='1 1, 11 1, 6 8' fill='currentColor' stroke= 'currentColor' /%3E%3C/svg%3E ");
+      position: relative;
+      left: -4px;
+      top: 2px;
+    }
+
+  </style>
+  <h1>from: <a href="https://www.w3.org/TR/wai-aria-practices/examples/disclosure/disclosure-faq.html">W3 schools tutorial</a></h1>
+  <h3>Parking <abbr title="Frequently Asked Questions">FAQ</abbr>s</h3>
+<dl class="faq">
+  <dt>
+    <button type="button" aria-expanded="false" aria-controls="faq1_desc">What do I do if I have a permit for an assigned lot, but can't find a space there?</button>
+  </dt>
+  <dd>
+    <div id="faq1_desc" class="desc">
+      Park at the nearest available parking meter without paying the meter
+      and call 999-999-9999 to report the problem. We will note and approve your alternate
+      location and will investigate the cause of the shortage in your assigned facility.
+    </div>
+  </dd>
+  <dt>
+    <button type="button" aria-expanded="false" aria-controls="faq2_desc">What do I do if I lose my permit or if my permit is stolen?</button>
+  </dt>
+  <dd>
+    <div id="faq2_desc" class="desc">You should come to the Parking office and report the
+      loss. There is a fee to replace your lost permit. However, if your permit was stolen, a
+      copy of a police report needs to be submitted along with a stolen parking permit form for a fee replacement exemption.
+    </div>
+  </dd>
+  <dt>
+    <button type="button" aria-expanded="false" aria-controls="faq3_desc">Is there free parking on holidays?</button>
+  </dt>
+  <dd>
+    <div id="faq3_desc" class="desc">
+      All facilities are restricted from 2:00 am - 6:00 am on all days. No
+      exceptions are made for any holiday or recess except those officially listed as a
+      <q>Holidays</q> in the calendar. Please note: 24-hour rental spaces, 24-hour rental lots, and
+      disabled parking is enforced at all times.
+    </div>
+  </dd>
+  <dt>
+    <button type="button" aria-expanded="false" aria-controls="faq4_desc">Do all parking facilities have the same enforcement rules?</button>
+  </dt>
+  <dd>
+    <div id="faq4_desc" class="desc">
+      Some parking facility restrictions differ from others. Be sure to
+      take note of the signs at each lot entrance.
+    </div>
+  </dd>
+</dl>
+    
+
+  <script>
+    class DisclosureButton {
+      constructor(buttonNode) {
+        this.buttonNode = buttonNode;
+        this.controlledNode = false;
+
+        var id = this.buttonNode.getAttribute('aria-controls');
+
+        if (id) {
+          this.controlledNode = document.getElementById(id);
+        }
+
+        this.buttonNode.setAttribute('aria-expanded', 'false');
+        this.hideContent();
+
+        this.buttonNode.addEventListener('click', this.onClick.bind(this));
+        this.buttonNode.addEventListener('focus', this.onFocus.bind(this));
+        this.buttonNode.addEventListener('blur', this.onBlur.bind(this));
+      }
+
+      showContent() {
+        if (this.controlledNode) {
+          this.controlledNode.style.display = 'block';
+        }
+      }
+
+      hideContent() {
+        if (this.controlledNode) {
+          this.controlledNode.style.display = 'none';
+        }
+      }
+
+      toggleExpand() {
+        if (this.buttonNode.getAttribute('aria-expanded') === 'true') {
+          this.buttonNode.setAttribute('aria-expanded', 'false');
+          this.hideContent();
+        } else {
+          this.buttonNode.setAttribute('aria-expanded', 'true');
+          this.showContent();
+        }
+      }
+
+      /* EVENT HANDLERS */
+
+      onClick() {
+        this.toggleExpand();
+      }
+
+      onFocus() {
+        this.buttonNode.classList.add('focus');
+      }
+
+      onBlur() {
+        this.buttonNode.classList.remove('focus');
+      }
+    }
+
+    /* Initialize Hide/Show Buttons */
+
+    window.addEventListener(
+      'load',
+      function () {
+        var buttons = document.querySelectorAll(
+          'button[aria-expanded][aria-controls]'
+        );
+
+        for (var i = 0; i < buttons.length; i++) {
+          new DisclosureButton(buttons[i]);
+        }
+      },
+      false
+    );
+
+  </script>
+</body>
+</html>

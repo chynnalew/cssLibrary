@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .question {
+        transition: all 0.5s;
+      }
+      .active,
+      .question:hover {
+        background-color: #ccc;
+      }
+      .answer-panel {
+        display: none;
+        overflow: hidden;
+      }
+    </style>
+
+    <h1 class="question">Question 1</h1>
+    <p class="answer-panel">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque soluta
+      amet consequatur laboriosam quia! Repellat laudantium atque nam aliquam
+      tempora, optio repudiandae, harum error excepturi modi, id quaerat dolores
+      velit?
+    </p>
+    <h1 class="question">Question 2</h1>
+    <p class="answer-panel">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque soluta
+      amet consequatur laboriosam quia! Repellat laudantium atque nam aliquam
+      tempora, optio repudiandae, harum error excepturi modi, id quaerat dolores
+      velit?
+    </p>
+    <h1 class="question">Question 3</h1>
+    <p class="answer-panel">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque soluta
+      amet consequatur laboriosam quia! Repellat laudantium atque nam aliquam
+      tempora, optio repudiandae, harum error excepturi modi, id quaerat dolores
+      velit?
+    </p>
+    <h1 class="question">Question 4</h1>
+    <p class="answer-panel">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque soluta
+      amet consequatur laboriosam quia! Repellat laudantium atque nam aliquam
+      tempora, optio repudiandae, harum error excepturi modi, id quaerat dolores
+      velit?
+    </p>
+
+    <script>
+      const questions = document.getElementsByClassName('question');
+      let i;
+      for(i=0; i < questions.length; i++){
+        questions[i].addEventListener('click', function(){
+          this.classList.toggle('active');
+
+          const answer = this.nextElementSibling;
+          if(answer.style.display === 'block') {
+            answer.style.display = 'none';
+          } else {
+            answer.style.display = 'block'
+          }
+        })
+      }
+
+    </script>
+  </body>
+</html>
