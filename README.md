@@ -51,11 +51,17 @@
   - transformations.css 43-
   - transformations.js 69-
 6. Expanding circle sticky hero
+  - (image fades in and expands to cover the screen with scroll)
   - transform/expanding-circle-sticky.html
 7. Underline text on hover
+  - (underline comes in from left to right, then exits right onblur)
   - transform/underline.html
 8. Show images / text on hover 
+  - (the images focus and text slides in on hover)
   - transform/li-light-images-on-hover.html
+9. Show images on hover
+  - (two images animate out from behind the main image on hover)
+  - transform/show-3-img-on-hover.html
 ### Wordpress Specific:
 1. Display different logos for mobile navbar and sticky mobile navbar
   - wordpress/mobile-sticky-nav-logo.html

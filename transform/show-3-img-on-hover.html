@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show 5 images on hover</title>
+  </head>
+  <body>
+    <style>
+      .hover-container {
+        position: relative;
+        height: 50vh;
+        width: 30vw;
+        margin: 40px auto;
+      }
+      .large-image {
+        position:absolute;
+        max-height: 50vh;
+        width: 30vw;
+        overflow: hidden;
+        z-index: 10;
+      }
+      .large-image img {
+        height: 50vh;
+        width: 30vw;
+        object-fit: contain;
+        transition: all .6s;
+      }
+      .img-text{
+        position: absolute;
+        height: 50vh;
+        width: 30vw;
+        object-fit: contain;
+        text-align: center;
+        color: #fff;
+        opacity: 0;
+        transition: all .6s;
+        z-index: 12;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .side-images{
+        height: 50vh;
+        width: 30vw;
+        margin: auto 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1
+      }
+      .side-images img {
+        height: 50%;
+        width:auto;
+        object-fit: contain;
+      }
+      .img-1, .img-2{
+        opacity: 0;
+        transition: all 0.6s;
+      }
+      .hover-container:hover .img-1{
+        opacity: 1;
+        transform: translateX(-50%);
+        height: 90%;
+      }
+      .hover-container:hover .img-2{
+        opacity: 1;
+        transform: translateX(50%);
+        height: 90%;
+      }
+      .hover-container:hover .img-text{
+        opacity: 1;
+      }
+    </style>
+    <h1 style="text-align:center; padding: 20px">hover over an image to see the effect!</h1>
+
+    <div class="hover-container">
+      <div class="img-text">
+        <h2>Add text Here!</h2>
+        <p>more text and stuff!</p>
+      </div>
+      <div class="large-image">
+        <img
+          src="https://images.unsplash.com/photo-1548783300-70b41bc84f56?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+          alt=""
+        />
+      </div>
+      <div class="side-images">
+          <img class='img-1' src="https://images.unsplash.com/photo-1634326080825-985cfc816db6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=898&q=80" alt="">
+          <img class='img-2' src="https://images.unsplash.com/photo-1634680582783-0b06ca18a449?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="hover-container">
+      <div class="img-text">
+        <h2>Add text Here!</h2>
+        <p>more text and stuff!</p>
+      </div>
+      <div class="large-image">
+        <img
+          src="https://images.unsplash.com/photo-1642515619792-073776acfa6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDN8UzRNS0xBc0JCNzR8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+          alt=""
+        />
+      </div>
+      <div class="side-images">
+          <img class='img-1' src="https://images.unsplash.com/photo-1650829411280-8285fd7c5fa6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDd8UzRNS0xBc0JCNzR8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="">
+          <img class='img-2' src="https://images.unsplash.com/photo-1650795754086-0d4c413e549a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE2fFM0TUtMQXNCQjc0fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="hover-container">
+      <div class="img-text">
+        <h2>Add text Here!</h2>
+        <p>more text and stuff!</p>
+      </div>
+      <div class="large-image">
+        <img
+          src="https://images.unsplash.com/photo-1650369335952-abb47b6a81e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8eGpQUjRobGtCR0F8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+          alt=""
+        />
+      </div>
+      <div class="side-images">
+          <img class='img-1' src="https://images.unsplash.com/photo-1650270247262-7e4c36f522f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDExfHhqUFI0aGxrQkdBfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+          <img class='img-2' src="https://images.unsplash.com/photo-1650026065986-4baa7a4bdaa4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE5fHhqUFI0aGxrQkdBfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
