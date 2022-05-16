@@ -4,14 +4,24 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link 
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>
   <link rel="stylesheet" href="styles.css">
   <title>Anime Rotating Blocks</title>
 </head>
 <body>
-  <div class="box red"></div>
-  <div class="box blue"></div>
-  <div class="box green"></div>
-  <div class="box yellow"></div>
+  <div class="boxes">
+    <div class="btns">
+      <button class="play"><i class="fa fa-play-circle"></i></button>
+      <button class="pause"><i class="fa fa-pause"></i></button>
+      <button class="stop"><i class="fa fa-stop"></i></button>
+    </div>
+    <div class="box red"></div>
+    <div class="box blue"></div>
+    <div class="box green"></div>
+    <div class="box yellow"></div>
+  </div>
   
   <script src="../anime.min.js"></script>
   <script src="./scripts.js"></script>
