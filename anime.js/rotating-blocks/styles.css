@@ -4,6 +4,7 @@
   height: 100px;
   margin: 4px;
   display: inline-block;
+  margin: 0px 20px
 }
 
 .red {
@@ -17,4 +18,15 @@
 }
 .yellow {
   background-color: yellow
+}
+
+.btns, .boxes{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px
+}
+button{
+  margin: 0 10px;
+  width: 100px
 }

@@ -1,4 +1,4 @@
-anime({
+const playPause = anime({
   targets: 'div.box',
   translateY: [
     { value: 200, duration: 500 },
