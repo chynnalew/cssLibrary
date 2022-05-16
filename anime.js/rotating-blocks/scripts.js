@@ -10,6 +10,9 @@ const playPause = anime({
   },
   delay: function(element, iteration, length) {
     return iteration * 1000
-  }
+  },
+  autoplay: false
 })
 
+document.querySelector('.play').onclick = playPause.play;
+document.querySelector('.pause').onclick =playPause.pause;
