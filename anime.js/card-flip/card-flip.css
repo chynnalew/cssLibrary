@@ -1,0 +1,36 @@
+.container {
+  font-family: monospace;
+  height: 200px;
+  width: 400px;
+  margin: 100px auto;
+}
+
+.card{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+}
+
+.card-front, .card-back {
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  border: 4px solid;
+  border-radius: 10px;
+}
+
+.card-front {
+  background-color: rgb(255, 165, 127);
+}
+
+.card-back {
+  position:absolute;
+  top:0;
+  left:0;
+  transform: rotateY(180deg);
+}
