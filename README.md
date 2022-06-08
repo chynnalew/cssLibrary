@@ -4,6 +4,13 @@
 <hr/>
 
 ## TABLE OF CONTENTS:
+### ANIME.JS:
+1. Card flip
+  - flash card flip animation
+2. Card Slide Up Reveal
+  - div slides up to reveal image on hover
+3. Rotating Blocks
+  - blocks rotate and move with play/pause buttons
 ### BUTTONS:
 1. Return to top of page
   - buttons.css 1-14

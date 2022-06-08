@@ -15,3 +15,33 @@ wp_reset_query(); //resetting the page query
 
 ADD SHORTCODE
 <?php echo do_shortcode('[tribe_events]'); ?>
+
+
+ADD JQUERY to custom JS
+<?php
+wp_enqueue_script( 'custom-scripts', get_stylesheet_directory_uri() . '/js/custom.js', array ('jquery'), 'v1.0', true);
+
+jQuery(document).ready(function($){
+	
+})
+?>
+
+CONSOLE LOG
+<?php 
+function printToConsole($msg){
+  echo "<script>console.log('" . json_encode($msg) . "');</script>";
+}
+?>
+
+
+CONSOLE LOG WHICH TEMPLATE IS IN USE
+<?php 
+function print_which_template_is_loaded() {
+  global $template;
+  echo "<script>console.log('" . json_encode($template) . "');</script>";
+};
+add_action('wp_footer', 'print_which_template_is_loaded');
+?>
+
+ADD PAGINATION TO ARCHIVE PAGE
+<?php echo paginate_links();?>
