@@ -1,0 +1,78 @@
+.main{
+  margin: 40px auto 120px;
+	max-width: 1000px;
+	width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.main figure{
+  position: relative;
+  overflow: hidden;
+  margin: 5px;
+}
+
+.main figure img {
+  position: relative;
+  display: block;
+  width: 100%;
+  opacity: 0.5;
+  transition: opacity .5s
+}
+
+.main figcaption {
+  position: absolute;
+  top: 0;
+  z-index: 11;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.main figcaption h2 {
+  transition: transform 0.5s
+}
+
+.main figcaption p{
+  transition: opacity 0.5s, transform 0.5s
+}
+
+.main figcaption h2, .main figcaption p {
+  transform: translateY(50px)
+}
+
+.main figure button {
+  position: absolute;
+  transition: opacity 0.5s, transform 0.5s;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%) scale(.5)
+}
+
+.main figcaption,
+.main figcaption h2,
+.main figcaption p,
+.main figure button {
+	backface-visibility: hidden;
+}
+
+.main svg{
+  position: absolute;
+  top: -1px
+}
+
+.main svg path{
+  fill: rgb(252, 233, 173)
+}
+
+/* HOVER */
+.main a:hover figure img {
+  opacity: 1;
+}
+.main a:hover figcaption h2, .main a:hover figcaption p{
+  transform: translateY(0)
+}
+.main a:hover figcaption p {
+  opacity: 0;
+}
