@@ -18,16 +18,17 @@
         height: 100vh;
         background-color: black;
       }
-
+      
       .logo-wrap {
         position: relative;
+        width:100%;
         margin-top: 40vh;
-        animation: slide-up 2.5s ease forwards 4s;
+        animation: slide-up 2.5s ease forwards 3s;
+        text-align: center;
       }
-     
       #logo,
       #logo mask {
-        animation: fill-animation 2s ease forwards 3.3s;
+        animation: fill-animation 2s ease forwards 1.6s;
       }
 
       #logo path:nth-child(2) {
@@ -38,32 +39,32 @@
       #logo path:nth-child(3) {
         stroke-dasharray: 442;
         stroke-dashoffset: 442;
-        animation: line-animation 2s ease forwards 0.3s;
+        animation: line-animation 2s ease forwards 0.2s;
       }
       #logo path:nth-child(4) {
         stroke-dasharray: 514;
         stroke-dashoffset: 514;
-        animation: line-animation 2s ease forwards 0.6s;
+        animation: line-animation 2s ease forwards 0.4s;
       }
       #logo path:nth-child(5) {
         stroke-dasharray: 750;
         stroke-dashoffset: 750;
-        animation: line-animation 2s ease forwards 0.9s;
+        animation: line-animation 2s ease forwards 0.6s;
       }
       #logo path:nth-child(6) {
         stroke-dasharray: 516;
         stroke-dashoffset: 516;
-        animation: line-animation 2s ease forwards 1.2s;
+        animation: line-animation 2s ease forwards 0.8s;
       }
       #logo path:nth-child(7) {
         stroke-dasharray: 514;
         stroke-dashoffset: 514;
-        animation: line-animation 2s ease forwards 1.5s;
+        animation: line-animation 2s ease forwards 1s;
       }
       #logo path:nth-child(8) {
         stroke-dasharray: 475;
         stroke-dashoffset: 475;
-        animation: line-animation 2s ease forwards 1.8s;
+        animation: line-animation 2s ease forwards .9s;
       }
 
       @keyframes line-animation {
@@ -83,7 +84,7 @@
           margin-top: 40vh;
         }
         100%{
-          margin-top:0vh;
+          margin-top:20px;
         }
       }
     </style>
