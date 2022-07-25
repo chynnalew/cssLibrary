@@ -45,3 +45,6 @@ add_action('wp_footer', 'print_which_template_is_loaded');
 
 ADD PAGINATION TO ARCHIVE PAGE
 <?php echo paginate_links();?>
+
+INTERNAL URLS
+<a href="<?php echo esc_url( home_url() . "/end-of-url" ); ?>">My Site</a>
