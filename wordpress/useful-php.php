@@ -48,3 +48,8 @@ ADD PAGINATION TO ARCHIVE PAGE
 
 INTERNAL URLS
 <a href="<?php echo esc_url( home_url() . "/end-of-url" ); ?>">My Site</a>
+
+FONT AWESOME PSEUDO CLASS
+add the following to functions.php wp_add_scripts
+
+wp_enqueue_style('font-awesome-css', 'https://use.fontawesome.com/releases/v5.0.6/css/all.css');
