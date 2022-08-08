@@ -53,3 +53,14 @@ FONT AWESOME PSEUDO CLASS
 add the following to functions.php wp_add_scripts
 
 wp_enqueue_style('font-awesome-css', 'https://use.fontawesome.com/releases/v5.0.6/css/all.css');
+
+CUSTOM SEARCH
+<form role="search" method="get" id="searchform" class="searchform scale-search" action="<?php echo home_url( '/' ); ?>">
+    <div>
+        <label class="screen-reader-text" for="s">Search for:</label>
+        <input type="text" value="" name="s" id="s" />
+        //add inputs for different filters. EX:
+        <input type="hidden" value="scale" name="post_type" />
+        <input class="scale-submit" type="submit" id="searchsubmit" value="Search" />
+    </div>
+</form>
