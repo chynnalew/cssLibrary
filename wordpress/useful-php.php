@@ -64,3 +64,12 @@ CUSTOM SEARCH
         <input class="scale-submit" type="submit" id="searchsubmit" value="Search" />
     </div>
 </form>
+
+CREATE FEATURED IMAGE SHORTCODE (add to functions.php)
+add_shortcode( 'featured_image', function( ) {
+ob_start();
+global $post;
+$featured_img_url = get_the_post_thumbnail_url($post->id);
+echo '<img class="page-hero-featured-image" src="'.$featured_img_url.'" alt="'.get_the_title($post->id).'"/>';
+return ob_get_clean();
+});
