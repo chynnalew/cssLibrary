@@ -73,3 +73,40 @@ $featured_img_url = get_the_post_thumbnail_url($post->id);
 echo '<img class="page-hero-featured-image" src="'.$featured_img_url.'" alt="'.get_the_title($post->id).'"/>';
 return ob_get_clean();
 });
+
+ADD POST VIEW COUNT TO META DATA
+in functions.php
+/*
+ * Set post views count using post meta
+ */
+ <?php
+function setPostViews($postID) {
+    $countKey = 'post_views_count';
+    $count = get_post_meta($postID, $countKey, true);
+    if($count==''){
+        $count = 0;
+        delete_post_meta($postID, $countKey);
+        add_post_meta($postID, $countKey, '0');
+    }else{
+        $count++;
+        update_post_meta($postID, $countKey, $count);
+    }
+} 
+?>
+in single.php loop
+<?php
+setPostViews(get_the_ID());
+?>
+popular posts query
+<?php
+      query_posts('meta_key=post_views_count&posts_per_page=5&orderby=meta_value_num&
+      order=DESC');
+      if (have_posts()) : while (have_posts()) : the_post();
+   ?>
+    <li><a href="<?php the_permalink(); ?>"><?php the_title();
+     ?></a>
+   </li>
+   <?php
+   endwhile; endif;
+   wp_reset_query();
+   ?>
