@@ -110,3 +110,10 @@ popular posts query
    endwhile; endif;
    wp_reset_query();
    ?>
+
+REMOVE TITLE FROM ARCHIVE PAGE
+<?php
+add_action( 'after_setup_theme', function() {
+    remove_action( 'generate_archive_title', 'generate_archive_title' );
+} );
+?>
