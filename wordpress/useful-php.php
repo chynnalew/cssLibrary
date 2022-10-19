@@ -66,13 +66,15 @@ CUSTOM SEARCH
 </form>
 
 CREATE FEATURED IMAGE SHORTCODE (add to functions.php)
+<?php
 add_shortcode( 'featured_image', function( ) {
 ob_start();
 global $post;
 $featured_img_url = get_the_post_thumbnail_url($post->id);
 echo '<img class="page-hero-featured-image" src="'.$featured_img_url.'" alt="'.get_the_title($post->id).'"/>';
 return ob_get_clean();
-});
+}); ?>
+
 
 ADD POST VIEW COUNT TO META DATA
 in functions.php
@@ -111,9 +113,52 @@ popular posts query
    wp_reset_query();
    ?>
 
+
 REMOVE TITLE FROM ARCHIVE PAGE
 <?php
 add_action( 'after_setup_theme', function() {
     remove_action( 'generate_archive_title', 'generate_archive_title' );
 } );
+?>
+
+ECHO CUSTOM POST TYPE FIELDS
+<?php
+ echo '<pre>';
+ print_r(get_post_custom($post_id));
+ echo '</pre>';
+?>
+
+301 PAGE REDIRECT
+<?php
+function redirect_page() {
+
+    if (isset($_SERVER['HTTPS']) &&
+       ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+       isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+       $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+       $protocol = 'https://';
+       }
+       else {
+       $protocol = 'http://';
+   }
+
+   $currenturl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+   $currenturl_relative = wp_make_link_relative($currenturl);
+
+   switch ($currenturl_relative) {
+   
+       case '[from slug]':
+           $urlto = home_url('[to slug]');
+           break;
+       
+       default:
+           return;
+   
+   }
+   
+   if ($currenturl != $urlto)
+       exit( wp_redirect( $urlto ) );
+       
+}
+add_action( 'template_redirect', 'redirect_page' );
 ?>

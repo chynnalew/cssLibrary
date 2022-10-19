@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        h1 {
+            color: green;
+        }
+
+        .instrumentMultipleSelection {
+            width: 300px;
+            background-color: #BCC2C1;
+        }
+
+        .selectBox {
+            position: relative;
+        }
+
+        .selectBox select {
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .instrumentOverSelect {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        #instrumentCheckBoxes {
+            display: none;
+            border: 1px #8DF5E4 solid;
+        }
+
+        #instrumentCheckBoxes label {
+            display: block;
+        }
+
+        #instrumentCheckBoxes label:hover {
+            background-color: #4F615E;
+        }
+    </style>
+
+    <form>
+        <div class="instrumentMultipleSelection">
+            <div class="selectBox" onclick="showCheckboxes()">
+                <select>
+                    <option>Select Instrument(s)</option>
+                </select>
+                <div class="overSelect"></div>
+            </div>
+
+            <div id="instrumentCheckBoxes">
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Accordion" />
+                    Accordion
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Arranger" />
+                    Arranger
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Autoharp" />
+                    Autoharp
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Bagpipes" />
+                    Bagpipes
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Banjo" />
+                    Banjo
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Bass+Violin" />
+                    Bass Violin
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Bass+(Electric)" />
+                    Bass (Electric)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Bassoon" />
+                    Bassoon
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Bassoon+(Contra)" />
+                    Bassoon (Contra)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Bayan" />
+                    Bayan
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Celeste" />
+                    Celeste
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Cello" />
+                    Cello
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Clarinet" />
+                    Clarinet
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Clarinet+(Eb+Sop)" />
+                    Clarinet+(Eb+Sop)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Clarinet+(Alto)" />
+                    Clarinet(Alto)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Clarinet+(Bass)" />
+                    Clarinet+(Bass)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Composer" />
+                    Composer
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Conductor" />
+                    Conductor
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Congas" />
+                    Congas
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Copyist" />
+                    Copyist
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Cornet" />
+                    Cornet
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Dobro+Guitar" />
+                    Dobro Guitar
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Drums+(Set)" />
+                    Drums (Set)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Dulcimer" />
+                    Dulcimer
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="English+Horn" />
+                    English Horn
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Euphonium" />
+                    Euphonium
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Flugelhorn" />
+                    Flugelhorn
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Flute" />
+                    Flute
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Flute+(Alto)" />
+                    Flute (Alto)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="French+Horn" />
+                    French Horn
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Glockenspiel" />
+                    Glockenspiel
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Guitar+(Acoustic)" />
+                    Guitar (Acoustic)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Guitar+(Electric)" />
+                    Guitar (Electric)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Guitar+(Other)" />
+                    Guitar (Other)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Guitar+(Steel)" />
+                    Guitar (Steel)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Harmonica" />
+                    Harmonica
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Harp+(Concert)" />
+                    Harp (Concert)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Harp+(Celtic)" />
+                    Harp (Celtic)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Harpsichord" />
+                    Harpsichord
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Keyboard/Synth" />
+                    Keyboard/Synth
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Mandolin" />
+                    Mandolin
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Marimba" />
+                    Marimba
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="MIDI/Programmer" />
+                    MIDI/Programmer
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Oboe" />
+                    Oboe
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Oboe+d'Amore" />
+                    Oboe d'Amore
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Organ" />
+                    Organ
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Percussion" />
+                    Percussion
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Percussion+(Latin)" />
+                    Percussion (Latin)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Piano" />
+                    Piano
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Piccolo" />
+                    Piccolo
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Recorder" />
+                    Recorder
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Saxophone+(Sopr)" />
+                    Saxophone (Sopr)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Saxophone+(Alto)" />
+                    Saxophone (Alto)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Saxophone+(Tenor)" />
+                    Saxophone (Tenor)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Saxophone+(Bari)" />
+                    Saxophone (Bari)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Saxophone+(Bass)" />
+                    Saxophone (Bass)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Steel+Drums" />
+                    Steel Drums
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Timpani" />
+                    Timpani
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Trombone+(Alto)" />
+                    Trombone (Alto)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Trombone+(Tenor)" />
+                    Trombone (Tenor)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Trombone+(Bass)" />
+                    Trombone (Bass)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Trumpet" />
+                    Trumpet
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Trumpet+(D-Eb-Pic)" />
+                    Trumpet (D-Eb-Pic)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Trumpet+(Bass)" />
+                    Trumpet (Bass)
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Tuba" />
+                    Tuba
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Vibes" />
+                    Vibes
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Viola" />
+                    Viola
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Viola+da+Gamba" />
+                    Viola da Gamba
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Violin" />
+                    Violin
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Xylophone" />
+                    Xylophone
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Washtub+Bass" />
+                    Washtub Bass
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Librarian" />
+                    Librarian
+                </label>
+                <label>
+                    <input type="checkbox" name="instrumentsCk" value="Other" />
+                    Other
+                </label>
+            </div>
+        </div>
+        <button class="searchSubmit" onclick="musicianSearch()">Search</button>
+    </form>
+
+    <script>
+        
+        var showInstruments = true;
+
+        function showCheckboxes() {
+            var checkboxes =
+                document.getElementById("instrumentCheckBoxes");
+
+            if (showInstruments) {
+                checkboxes.style.display = "block";
+                showInstruments = false;
+            } else {
+                checkboxes.style.display = "none";
+                showInstruments = true;
+            }
+        }
+
+        function musicianSearch() {
+            var markedCheckbox = document.getElementsByName('instrumentsCk');
+            for (var checkbox of markedCheckbox) {
+                if (checkbox.checked)
+                console.log(checkbox.value + ' ')
+            }
+            event.preventDefault();
+        } 
+    </script>
+</body>
+
+</html>

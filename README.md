@@ -69,6 +69,9 @@
 9. Show images on hover
   - (two images animate out from behind the main image on hover)
   - transform/show-3-img-on-hover.html
+10. Dropdown Checkboxes 
+  - (Console logs results)
+  - /transform/dropdownCheckboxes.html
 ### Wordpress Specific:
 1. Display different logos for mobile navbar and sticky mobile navbar
   - wordpress/mobile-sticky-nav-logo.html
