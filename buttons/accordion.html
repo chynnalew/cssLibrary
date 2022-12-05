@@ -1,106 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  </head>
-  <body>
-    <style>
-      .question {
-        transition: all 0.25s;
-        border: 4px #e58f65 solid;
-        border-radius: 4px;
-        box-shadow: 5px 5px 20px #ececec;
-        display: flex;
-        align-items: center;
-      }
-      .question  {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-      }
-      .active {
-        border: 4px #52aa5e solid;
-        transition: all 0.25s;
-        border-radius: 4px;
-      }
-      .question:hover {
-        border: 4px #52aa5e solid;
-      }
+</head>
 
-      .answer-panel {
-        display: none;
-        overflow: hidden;
-        padding-left: 20px;
-      }
-      .faq-icon {
-        transition: all 0.25s;
-        min-width: 70px !important;
-        max-width: 70px !important;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .question.active .faq-icon:after {
-        content: "-";
-        color: #52aa5e;
-      }
-      .question.inactive .faq-icon:after {
-        content: "+";
-        color: #e58f65;
-      }
-      .question:hover .faq-icon:after {
-        color: #52aa5e;
-      }
+<body>
+    <style>
+        .question {
+            transition: all 0.25s;
+            border: 4px #e58f65 solid;
+            border-radius: 4px;
+            box-shadow: 5px 5px 20px #ececec;
+            display: flex;
+            align-items: center;
+        }
+
+        .question {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .active {
+            border: 4px #52aa5e solid;
+            transition: all 0.25s;
+            border-radius: 4px;
+        }
+
+        .question:hover {
+            border: 4px #52aa5e solid;
+        }
+
+        .answer-panel {
+            display: none;
+            overflow: hidden;
+            padding-left: 20px;
+        }
+
+        .faq-icon {
+            transition: all 0.25s;
+            min-width: 70px !important;
+            max-width: 70px !important;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .question.active .faq-icon:after {
+            content: "-";
+            color: #52aa5e;
+        }
+
+        .question.inactive .faq-icon:after {
+            content: "+";
+            color: #e58f65;
+        }
+
+        .question:hover .faq-icon:after {
+            color: #52aa5e;
+        }
     </style>
 
     <h1 class="question inactive"><span class="faq-icon"></span>Question 1</h1>
     <p class="answer-panel">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque soluta
-      amet consequatur laboriosam quia! Repellat laudantium atque nam aliquam
-      tempora, optio repudiandae, harum error excepturi modi, id quaerat dolores
-      velit?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque soluta
+        amet consequatur laboriosam quia! Repellat laudantium atque nam aliquam
+        tempora, optio repudiandae, harum error excepturi modi, id quaerat dolores
+        velit?
     </p>
     <h1 class="question inactive"><span class="faq-icon"></span>Question 2</h1>
     <p class="answer-panel">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque soluta
-      amet consequatur laboriosam quia! Repellat laudantium atque nam aliquam
-      tempora, optio repudiandae, harum error excepturi modi, id quaerat dolores
-      velit?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque soluta
+        amet consequatur laboriosam quia! Repellat laudantium atque nam aliquam
+        tempora, optio repudiandae, harum error excepturi modi, id quaerat dolores
+        velit?
     </p>
     <h1 class="question inactive"><span class="faq-icon"></span>Question 3</h1>
     <p class="answer-panel">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque soluta
-      amet consequatur laboriosam quia! Repellat laudantium atque nam aliquam
-      tempora, optio repudiandae, harum error excepturi modi, id quaerat dolores
-      velit?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque soluta
+        amet consequatur laboriosam quia! Repellat laudantium atque nam aliquam
+        tempora, optio repudiandae, harum error excepturi modi, id quaerat dolores
+        velit?
     </p>
     <h1 class="question inactive"><span class="faq-icon"></span>Question 4</h1>
     <p class="answer-panel">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque soluta
-      amet consequatur laboriosam quia! Repellat laudantium atque nam aliquam
-      tempora, optio repudiandae, harum error excepturi modi, id quaerat dolores
-      velit?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque soluta
+        amet consequatur laboriosam quia! Repellat laudantium atque nam aliquam
+        tempora, optio repudiandae, harum error excepturi modi, id quaerat dolores
+        velit?
     </p>
 
     <script>
-      const questions = document.getElementsByClassName("question");
-      let i;
-      for (i = 0; i < questions.length; i++) {
-        questions[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          this.classList.toggle("inactive");
-          const answer = this.nextElementSibling;
-          if (answer.style.display === "block") {
-            answer.style.display = "none";
-          } else {
-            answer.style.display = "block";
-          }
-        });
-      }
+        const questions = document.getElementsByClassName("question");
+        let i;
+        for (i = 0; i < questions.length; i++) {
+            questions[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                this.classList.toggle("inactive");
+                const answer = this.slider - nextElementSibling;
+                if (answer.style.display === "block") {
+                    answer.style.display = "none";
+                } else {
+                    answer.style.display = "block";
+                }
+            });
+        }
     </script>
-  </body>
+</body>
+
 </html>
