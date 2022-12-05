@@ -162,3 +162,22 @@ function redirect_page() {
 }
 add_action( 'template_redirect', 'redirect_page' );
 ?>
+
+//Restrict page to logged in users (add [restricted_page] shortcode to page)
+
+<?php
+function shortcode_restricted_page() {
+
+    if (is_user_logged_in()) {
+        // Access granted to the page
+        return;      
+    }
+    else {
+        global $wp_query;
+        $wp_query->set_404();
+        status_header( 404 );
+        get_template_part( 404 ); exit();
+    }    
+}
+add_shortcode('restricted_page', 'shortcode_restricted_page');
+?>
