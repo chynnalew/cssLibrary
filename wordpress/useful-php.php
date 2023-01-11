@@ -181,3 +181,16 @@ function shortcode_restricted_page() {
 }
 add_shortcode('restricted_page', 'shortcode_restricted_page');
 ?>
+
+// PRINT CURRENT USER METADATA TO CONSOLE
+<?php
+function getusermeta()
+{
+    $user = wp_get_current_user();
+    $id = $user->ID;
+    $meta = get_user_meta($id);
+    echo "<script>console.log('" . json_encode($meta) . "');</script>";
+}
+
+add_action('init', 'getusermeta');
+?>
