@@ -51,8 +51,9 @@ INTERNAL URLS
 
 FONT AWESOME PSEUDO CLASS
 add the following to functions.php wp_add_scripts
-
-wp_enqueue_style('font-awesome-css', 'https://use.fontawesome.com/releases/v5.0.6/css/all.css');
+<?php
+wp_enqueue_style('font-awesome-css', 'https://use.fontawesome.com/releases/v5.0.6/css/all.css'); 
+?>
 
 CUSTOM SEARCH
 <form role="search" method="get" id="searchform" class="searchform scale-search" action="<?php echo home_url( '/' ); ?>">
@@ -193,4 +194,13 @@ function getusermeta()
 }
 
 add_action('init', 'getusermeta');
+?>
+
+// 301 Redirect
+<?php
+/* 301 Redirect */
+if($_SERVER['REQUEST_URI']=='/directmailretargeting/'){
+    wp_redirect('https://pelhughes.com/services/direct-mail-retargeting/', 301);
+    exit;
+}
 ?>
