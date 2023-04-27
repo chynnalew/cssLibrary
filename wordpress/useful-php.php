@@ -204,3 +204,31 @@ if($_SERVER['REQUEST_URI']=='/directmailretargeting/'){
     exit;
 }
 ?>
+
+//Hide admin bar from non-administrators
+<?php
+add_action('after_setup_theme', 'remove_admin_bar');
+function remove_admin_bar() {
+if (!current_user_can('administrator') && !is_admin()) {
+  show_admin_bar(false);
+}
+}
+?>
+
+//FIX BUG WHERE MAIN LOOP IGNORES CUSTOM POST TYPE CATEGORY POSTS IN ARCHIVE
+<?php 
+add_action('pre_get_posts', function($query) {
+
+    if ( ! is_admin() && $query->is_main_query() && empty( $query->query_vars['suppress_filters'] )) {
+                 
+       if(is_archive()){
+ 
+           if(is_category()){
+         $query->set( 'post_type', ['post', 'myCustomType'] );
+             }else{
+         $query->set( 'post_type', 'myCustomType' );
+       }
+ 
+       }			
+ }});
+ ?>
