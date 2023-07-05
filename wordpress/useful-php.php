@@ -249,7 +249,7 @@ add_action('pre_get_posts', function($query) {
 add_action( 'init', 'create_admin_user_fn' );
 ?>
 
-// Remove homepage title
+// Remove homepage title (WIP- also removes nav links)
 <?php
 
 function remove_page_title( $title, $id ) {
