@@ -72,6 +72,9 @@
 10. Dropdown Checkboxes 
   - (Console logs results)
   - /transform/dropdownCheckboxes.html
+11. Trigger animations
+  - trigger animations when element comes into viewport
+  - /transform.animationOnViewportEntry.js
 ### Wordpress Specific:
 1. Display different logos for mobile navbar and sticky mobile navbar
   - wordpress/mobile-sticky-nav-logo.html
